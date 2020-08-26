@@ -2,6 +2,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components";
 import RootNavigator from "./components/Navigation/index";
+
+// Remove unused imports
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -29,6 +31,8 @@ export default function App() {
     </ThemeProvider>
   );
 }
+
+// Don't push this commented code that you'll never use. Delete it.
 
 // const styles = StyleSheet.create({
 //   container: {

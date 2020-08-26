@@ -4,11 +4,12 @@ import instance from "./instance";
 class TripStore {
   trips = [];
   loading = true;
-  //nailshops=trips
+  //nailshops=trips  <-- remove this
   fetchTrip = async () => {
-    //error handler
+    //error handler  <-- remove this
     try {
       const response = await instance.get("/trips");
+      // remove this console log
       console.log("TripStore -> fetchTrip -> error", response); // test to see where data come from
       this.trips = response.data;
       this.loading = false;
@@ -25,4 +26,5 @@ decorate(TripStore, {
 
 const tripStore = new TripStore();
 tripStore.fetchTrip();
+// add a single empty line here
 export default tripStore;

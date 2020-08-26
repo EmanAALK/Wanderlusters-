@@ -7,6 +7,8 @@ import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 const { Navigator, Screen } = createStackNavigator();
 
+// clean up your imports
+
 const RootNavigator = () => {
   return (
     <Navigator
@@ -21,6 +23,7 @@ const RootNavigator = () => {
         },
       }}
     >
+      {/* You haven't started any of the Features these Screens are for, why are they here? Remove them and build them when you start the Features. */}
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen name="Trips" component={TripList} />
       <Screen
