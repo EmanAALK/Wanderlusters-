@@ -1,10 +1,14 @@
 import React from "react";
-import Home from "../Home";
-import TripList from "../TripList";
-import QandAList from "../QandAList";
+
 import { createStackNavigator } from "@react-navigation/stack";
+
+//Stores
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
+
+//Components
+import Home from "../Home";
+
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
@@ -22,17 +26,6 @@ const RootNavigator = () => {
       }}
     >
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
-      <Screen name="Trips" component={TripList} />
-      <Screen
-        name="QandAItem"
-        component={QandAList}
-        options={({ route }) => {
-          const { trip } = route.params;
-          return {
-            title: trip.name,
-          };
-        }}
-      />
 
       <Screen
         name="Signin"

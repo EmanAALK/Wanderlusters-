@@ -4,10 +4,9 @@ import {
   TopStyling,
   Title,
   OverLayContainer,
-  ButtonStyled,
 } from "../../styles";
 
-const Home = ({ navigation }) => {
+const Home = () => {
   return (
     <HomeBackground
       source={{
@@ -18,9 +17,6 @@ const Home = ({ navigation }) => {
         <TopStyling>
           <Title>Wonderlusters</Title>
         </TopStyling>
-        <ButtonStyled onPress={() => navigation.navigate("Trips")}>
-          Click here to skip
-        </ButtonStyled>
       </OverLayContainer>
     </HomeBackground>
   );

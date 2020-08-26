@@ -23,31 +23,6 @@ export const OverLayContainer = styled.View`
   background-color: rgba(100, 40, 60, 0.4);
 `;
 
-export const BottomStyling = styled.View`
-  height: 40%;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ButtonStyled = styled.Text`
-  font-size: 20;
-  color: #fff;
-`;
-
-// export const NailShopItemStyled = styled.Text`
-//   color: #000000;
-//   font-size: 18;
-//   margin-top: 10;
-//   margin-bottom: 10;
-// `;
-
-export const TripItemStyled = styled.Text`
-  color: #000000;
-  font-size: 18;
-  margin-top: 10;
-  margin-bottom: 10;
-`;
-
 export const AuthContainer = styled.View`
   flex: 1;
   align-self: stretch;
@@ -93,16 +68,3 @@ export const AuthOther = styled.Text`
   color: #000000;
   margin-top: 15px;
 `;
-
-// export const CheckoutButton = styled.TouchableOpacity`
-//   align-self: stretch;
-//   align-items: center;
-//   padding: 20px;
-//   background-color: #000000;
-//   margin-top: 30px;
-// `;
-// export const CheckoutButtonText = styled.Text`
-//   color: #fcfdff;
-//   font-weight: bold;
-//   font-size: 18px;
-// `;

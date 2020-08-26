@@ -44,11 +44,7 @@ const Signup = ({ navigation }) => {
         placeholder="email"
         placeholderTextColor="#A6AEC1"
       />
-      {/* <AuthTextInput
-        onChangeText={(profileImage) => setUser({ ...user, profileImage })}
-        placeholder="email"
-        placeholderTextColor="#A6AEC1"
-      /> */}
+
       <AuthTextInput
         onChangeText={(password) => setUser({ ...user, password })}
         placeholder="Password"
