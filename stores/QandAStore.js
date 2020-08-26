@@ -1,6 +1,12 @@
 import { decorate, observable } from "mobx";
 import instance from "./instance";
 
+/**
+ * This store makes no sense.
+ * Q&A is an icebox feature, this is waaaaaaay too early to have a store for.
+ * Delete this file. When you're starting the Q&A feature, use the other store as reference.
+ */
+
 class QandAStore {
   items = [];
   loading = true;

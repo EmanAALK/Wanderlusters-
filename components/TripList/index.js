@@ -4,7 +4,9 @@ import TripItem from "./TripItem";
 import { observer } from "mobx-react";
 import { List, Spinner } from "native-base";
 
-// create a new nailshop
+// clean up your imports
+
+// create a new nailshop  <-- nailshop?
 const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
 

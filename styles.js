@@ -106,3 +106,13 @@ export const AuthOther = styled.Text`
 //   font-weight: bold;
 //   font-size: 18px;
 // `;
+
+/**
+ * Notes:
+ *
+ * - Remove any unused commented components. Don't leave code hanging like this.
+ * - If you'll maybe use them later, don't comment them out. If you won't, delete them.
+ *
+ * Also, DO NOT DEFINE ALL YOUR STYLED COMPONENTS IN ONE FILE.
+ * Use the structure we used in class, have a `styled.js` in each component folder.
+ */

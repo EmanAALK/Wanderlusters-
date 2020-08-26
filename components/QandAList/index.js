@@ -6,6 +6,10 @@ import QandAItem from "./QandAItem";
 //store
 import qandAStore from "../../stores/QandAStore";
 
+// no no no no no nooooooooo
+// delete this folder. this is an icebox feature, just delete it. youll write it when you start the feature.
+// be very deliberate about the code in your master branch.
+
 const QandAList = ({ route }) => {
   if (qandAStore.loading) return <Spinner />;
   const { trip } = route.params;
