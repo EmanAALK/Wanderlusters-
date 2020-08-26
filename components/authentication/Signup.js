@@ -9,6 +9,7 @@ import {
 } from "../../styles";
 import authStore from "../../stores/AuthStore";
 import { observer } from "mobx-react";
+
 const Signup = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
@@ -18,7 +19,7 @@ const Signup = ({ navigation }) => {
     password: "",
   });
   const handleSubmit = async () => {
-    await authStore.signiup(user);
+    await authStore.signup(user);
     if (authStore.user) navigation.replace("Home");
   };
   return (
