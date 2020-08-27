@@ -26,7 +26,6 @@ const RootNavigator = () => {
       }}
     >
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
-
       <Screen
         name="Signin"
         component={Signin}
@@ -40,4 +39,5 @@ const RootNavigator = () => {
     </Navigator>
   );
 };
+
 export default RootNavigator;

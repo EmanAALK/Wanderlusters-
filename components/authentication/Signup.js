@@ -10,6 +10,8 @@ import {
 import authStore from "../../stores/AuthStore";
 import { observer } from "mobx-react";
 
+// clean up imports
+
 const Signup = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
@@ -18,14 +20,17 @@ const Signup = ({ navigation }) => {
     email: "",
     password: "",
   });
+
   const handleSubmit = async () => {
     await authStore.signup(user);
     if (authStore.user) navigation.replace("Home");
   };
+
   return (
     <AuthContainer>
       <AuthTitle>Signup</AuthTitle>
       <AuthTextInput
+        // event handler is repeated
         onChangeText={(username) => setUser({ ...user, username })}
         placeholder="Username"
         placeholderTextColor="#A6AEC1"
