@@ -9,16 +9,18 @@ import {
 } from "../../styles";
 import authStore from "../../stores/AuthStore";
 import { observer } from "mobx-react";
-
+// imports
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
+
   const handleSubmit = async () => {
     await authStore.signin(user);
     if (authStore.user) navigation.replace("Home");
   };
+
   return (
     <AuthContainer>
       <AuthTitle>Signin</AuthTitle>

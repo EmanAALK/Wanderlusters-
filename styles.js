@@ -1,5 +1,7 @@
 import styled from "styled-components/native";
 
+// move these components into their respective component folders
+
 export const HomeBackground = styled.ImageBackground`
   flex: 1;
   width: 100%;
