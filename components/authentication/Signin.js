@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react";
+
+//Stores
+import authStore from "../../stores/AuthStore";
+
+//Styles
 import {
   AuthContainer,
   AuthTitle,
@@ -6,10 +12,8 @@ import {
   AuthButtonText,
   AuthButton,
   AuthOther,
-} from "../../styles";
-import authStore from "../../stores/AuthStore";
-import { observer } from "mobx-react";
-// imports
+} from "./styles";
+
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
@@ -23,16 +27,16 @@ const Signin = ({ navigation }) => {
 
   return (
     <AuthContainer>
-      <AuthTitle>Signin</AuthTitle>
+      <AuthTitle>Log in to Wanderlust</AuthTitle>
       <AuthTextInput
         onChangeText={(username) => setUser({ ...user, username })}
-        placeholder="Username"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Username'
+        placeholderTextColor='#A6AEC1'
       />
       <AuthTextInput
         onChangeText={(password) => setUser({ ...user, password })}
-        placeholder="Password"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Password'
+        placeholderTextColor='#A6AEC1'
         secureTextEntry={true}
       />
       <AuthButton onPress={handleSubmit}>

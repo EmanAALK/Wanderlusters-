@@ -25,6 +25,7 @@ export const OverLayContainer = styled.View`
   background-color: rgba(100, 40, 60, 0.4);
 `;
 
+
 export const AuthContainer = styled.View`
   flex: 1;
   align-self: stretch;
@@ -84,3 +85,4 @@ export const SignOutButtonText = styled.Text`
   font-weight: bold;
   font-size: 18px;
 `;
+

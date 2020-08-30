@@ -1,4 +1,6 @@
 import React from "react";
+
+//Styles
 import {
   HomeBackground,
   TopStyling,
@@ -7,9 +9,11 @@ import {
   SignOutButton,
   SignOutButtonText,
 } from "../../styles";
+
 import authStore from "../../stores/AuthStore";
 import { observer } from "mobx-react";
 const Home = ({ navigation }) => {
+
   return (
     <HomeBackground
       source={{
@@ -18,7 +22,7 @@ const Home = ({ navigation }) => {
     >
       <OverLayContainer>
         <TopStyling>
-          <Title>Wonderlusters</Title>
+          <Title>“Wherever you go becomes a part of you somehow.”</Title>
         </TopStyling>
         <SignOutButtonText onPress={() => navigation.navigate("TripList")}>
           Click here to explore trips
@@ -29,6 +33,9 @@ const Home = ({ navigation }) => {
           </SignOutButtonText>
         </SignOutButton>
       </OverLayContainer>
+      <AuthOther onPress={() => navigation.navigate("Signin")}>
+        Click here to Sign in!
+      </AuthOther>
     </HomeBackground>
   );
 };
