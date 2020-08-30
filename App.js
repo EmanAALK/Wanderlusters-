@@ -1,7 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { ThemeProvider } from "styled-components";
 import RootNavigator from "./components/Navigation/index";
+
+//Styles
+import { ThemeProvider } from "styled-components";
 
 const theme = {
   light: {

@@ -1,4 +1,6 @@
 import React from "react";
+
+//Styles
 import {
   HomeBackground,
   TopStyling,
@@ -7,6 +9,11 @@ import {
 } from "../../styles";
 
 const Home = () => {
+  const handleSubmit = async () => {
+    await authStore.signout(user);
+    if (authStore.user) navigation.replace("Home");
+  };
+
   return (
     <HomeBackground
       source={{
@@ -15,9 +22,12 @@ const Home = () => {
     >
       <OverLayContainer>
         <TopStyling>
-          <Title>Wonderlusters</Title>
+          <Title>“Wherever you go becomes a part of you somehow.”</Title>
         </TopStyling>
       </OverLayContainer>
+      <AuthOther onPress={() => navigation.navigate("Signin")}>
+        Click here to Sign in!
+      </AuthOther>
     </HomeBackground>
   );
 };
