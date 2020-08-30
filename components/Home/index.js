@@ -6,13 +6,13 @@ import {
   TopStyling,
   Title,
   OverLayContainer,
+  SignOutButton,
+  SignOutButtonText,
 } from "../../styles";
 
-const Home = () => {
-  const handleSubmit = async () => {
-    await authStore.signout(user);
-    if (authStore.user) navigation.replace("Home");
-  };
+import authStore from "../../stores/AuthStore";
+import { observer } from "mobx-react";
+const Home = ({ navigation }) => {
 
   return (
     <HomeBackground
@@ -24,6 +24,14 @@ const Home = () => {
         <TopStyling>
           <Title>“Wherever you go becomes a part of you somehow.”</Title>
         </TopStyling>
+        <SignOutButtonText onPress={() => navigation.navigate("TripList")}>
+          Click here to explore trips
+        </SignOutButtonText>
+        <SignOutButton onPress={authStore.signout}>
+          <SignOutButtonText onPress={() => navigation.navigate("Signup")}>
+            Signout
+          </SignOutButtonText>
+        </SignOutButton>
       </OverLayContainer>
       <AuthOther onPress={() => navigation.navigate("Signin")}>
         Click here to Sign in!
@@ -32,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default observer(Home);
