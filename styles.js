@@ -70,3 +70,17 @@ export const AuthOther = styled.Text`
   color: #000000;
   margin-top: 15px;
 `;
+
+export const SignOutButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: #000000;
+  margin-top: 30px;
+`;
+
+export const SignOutButtonText = styled.Text`
+  color: #fcfdff;
+  font-weight: bold;
+  font-size: 18px;
+`;
