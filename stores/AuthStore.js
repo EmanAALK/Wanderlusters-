@@ -1,11 +1,13 @@
 import instance from "./instance";
 import AsyncStorage from "@react-native-community/async-storage";
-
+// This is an overkill, you don't need a comment for mobx and jwt
 // Mobx
 import { decorate, observable } from "mobx";
 
 // JWT
 import decode from "jwt-decode";
+
+// REVIEW: Add space between property and method
 
 class AuthStore {
   user = null;

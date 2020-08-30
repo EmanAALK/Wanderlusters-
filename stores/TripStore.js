@@ -9,6 +9,7 @@ class TripStore {
     //error handler
     try {
       const response = await instance.get("/trips");
+      // REVIEW: If this is working remove console
       // console.log("NailStore -> fetchItems -> error", response); // test to see where data come from
       this.trips = response.data;
       this.loading = false;
