@@ -4,9 +4,12 @@ import {
   TopStyling,
   Title,
   OverLayContainer,
+  SignOutButton,
+  SignOutButtonText,
 } from "../../styles";
-
-const Home = () => {
+import authStore from "../../stores/AuthStore";
+import { observer } from "mobx-react";
+const Home = ({ navigation }) => {
   return (
     <HomeBackground
       source={{
@@ -17,9 +20,17 @@ const Home = () => {
         <TopStyling>
           <Title>Wonderlusters</Title>
         </TopStyling>
+        <SignOutButtonText onPress={() => navigation.navigate("TripList")}>
+          Click here to explore trips
+        </SignOutButtonText>
+        <SignOutButton onPress={authStore.signout}>
+          <SignOutButtonText onPress={() => navigation.navigate("Signup")}>
+            Signout
+          </SignOutButtonText>
+        </SignOutButton>
       </OverLayContainer>
     </HomeBackground>
   );
 };
 
-export default Home;
+export default observer(Home);
