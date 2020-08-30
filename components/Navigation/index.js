@@ -15,7 +15,7 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName='Home'
+      initialRouteName="Home"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -26,11 +26,11 @@ const RootNavigator = () => {
         },
       }}
     >
-      <Screen name='Home' component={Home} options={{ headerShown: false }} />
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="TripList"
         component={TripList}
-        options={{ headerShown: true }}
+        options={{ headerShown: true }} // REVIEW: This is by default set to true, you don't need to set it
       />
 
       <Screen
@@ -44,7 +44,7 @@ const RootNavigator = () => {
         options={{ headerShown: false }}
       />
       <Screen
-        name='Signup'
+        name="Signup"
         component={Signup}
         options={{ headerShown: false }}
       />

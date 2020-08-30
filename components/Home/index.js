@@ -12,8 +12,9 @@ import {
 
 import authStore from "../../stores/AuthStore";
 import { observer } from "mobx-react";
-const Home = ({ navigation }) => {
+// REVIEW: Organize the imports
 
+const Home = ({ navigation }) => {
   return (
     <HomeBackground
       source={{
