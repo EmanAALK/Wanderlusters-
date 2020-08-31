@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../Home";
 import TripList from "../TripList";
 import Signin from "../authentication/Signin";
+import Signup from "../authentication/Signup";
 import ProfileDetail from "../ProfileList/ProfileDetail";
 import ProfileList from "../ProfileList";
 
@@ -39,6 +40,11 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Signin"
         component={Signin}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Signup"
+        component={Signup}
         options={{ headerShown: false }}
       />
 
