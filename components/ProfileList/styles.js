@@ -16,3 +16,10 @@ export const OverLayContainer = styled.View`
   flex: 1;
   /* background-color: rgba(100, 40, 60, 0.4); */
 `;
+
+export const ProfileItemStyled = styled.Text`
+  color: red;
+  font-size: 18;
+  margin-top: 10;
+  margin-bottom: 10;
+`;

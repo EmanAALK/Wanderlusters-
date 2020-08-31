@@ -25,7 +25,6 @@ export const OverLayContainer = styled.View`
   background-color: rgba(100, 40, 60, 0.4);
 `;
 
-
 export const AuthContainer = styled.View`
   flex: 1;
   align-self: stretch;
@@ -80,9 +79,16 @@ export const SignOutButton = styled.TouchableOpacity`
   margin-top: 30px;
 `;
 
+export const SignInButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: green;
+  margin-top: 30px;
+`;
+
 export const SignOutButtonText = styled.Text`
   color: #fcfdff;
   font-weight: bold;
   font-size: 18px;
 `;
-

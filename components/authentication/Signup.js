@@ -25,7 +25,7 @@ const Signup = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signup(user);
-    if (authStore.user) navigation.replace("Home");
+    if (authStore.user) navigation.replace("ProfileDetail");
   };
 
   return (
@@ -33,30 +33,30 @@ const Signup = ({ navigation }) => {
       <AuthTitle>Create your account</AuthTitle>
       <AuthTextInput
         onChangeText={(firstName) => setUser({ ...user, firstName })}
-        placeholder='First name'
-        placeholderTextColor='#A6AEC1'
+        placeholder="First name"
+        placeholderTextColor="#A6AEC1"
       />
       <AuthTextInput
         onChangeText={(lastName) => setUser({ ...user, lastName })}
-        placeholder='Last name'
-        placeholderTextColor='#A6AEC1'
+        placeholder="Last name"
+        placeholderTextColor="#A6AEC1"
       />
       <AuthTextInput
         // event handler is repeated
         onChangeText={(username) => setUser({ ...user, username })}
-        placeholder='Username'
-        placeholderTextColor='#A6AEC1'
+        placeholder="Username"
+        placeholderTextColor="#A6AEC1"
       />
       <AuthTextInput
         onChangeText={(email) => setUser({ ...user, email })}
-        placeholder='Email'
-        placeholderTextColor='#A6AEC1'
+        placeholder="Email"
+        placeholderTextColor="#A6AEC1"
       />
 
       <AuthTextInput
         onChangeText={(password) => setUser({ ...user, password })}
-        placeholder='Password'
-        placeholderTextColor='#A6AEC1'
+        placeholder="Password"
+        placeholderTextColor="#A6AEC1"
         secureTextEntry={true}
       />
       <AuthButton onPress={handleSubmit}>
