@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import { AuthTitle } from "../../styles";
 import { ListItem, Left } from "native-base";
-import tripStore from "../../stores/TripStore";
+
 const TripDetail = ({ route }) => {
   const { trip } = route.params;
 
