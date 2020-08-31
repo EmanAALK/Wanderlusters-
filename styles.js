@@ -79,11 +79,20 @@ export const SignOutButton = styled.TouchableOpacity`
   margin-top: 30px;
 `;
 
+export const SignInButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: green;
+  margin-top: 30px;
+`;
+
 export const SignOutButtonText = styled.Text`
   color: #fcfdff;
   font-weight: bold;
   font-size: 18px;
 `;
+
 
 export const UpdateButtonStyled = styled.Text`
   color: #3a160b;
@@ -130,3 +139,4 @@ export const ModalButtonText = styled.Text`
   font-weight: bold;
   font-size: 18px;
 `;
+

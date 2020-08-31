@@ -2,21 +2,29 @@ import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-//Stores
-import Signin from "../authentication/Signin";
-import Signup from "../authentication/Signup";
-
 //Components
 import Home from "../Home";
 import TripList from "../TripList";
 import TripDetail from "../TripList/TripDetail";
+
 import TripModal from "../modal/TripModal";
+
+import Signin from "../authentication/Signin";
+import Signup from "../authentication/Signup";
+import ProfileDetail from "../ProfileList/ProfileDetail";
+import ProfileList from "../ProfileList";
+
+
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
+
       initialRouteName="Signup"
+
+      initialRouteName="Home"
+
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -28,6 +36,7 @@ const RootNavigator = () => {
       }}
     >
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
+
       <Screen
         name="TripList"
         component={TripList}
@@ -40,19 +49,34 @@ const RootNavigator = () => {
         options={{ headerShown: true }}
       />
 
+
       <Screen
         name="TripModal"
         component={TripModal}
         options={{ headerShown: true }}
       />
+
       <Screen
         name="Signin"
         component={Signin}
         options={{ headerShown: false }}
       />
+
       <Screen
         name="Signup"
         component={Signup}
+        options={{ headerShown: false }}
+      />
+
+      <Screen
+        name="ProfileList"
+        component={ProfileList}
+        options={{ headerShown: false }}
+      />
+
+      <Screen
+        name="ProfileDetail"
+        component={ProfileDetail}
         options={{ headerShown: false }}
       />
     </Navigator>
