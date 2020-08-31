@@ -10,12 +10,13 @@ import Signup from "../authentication/Signup";
 import Home from "../Home";
 import TripList from "../TripList";
 import TripDetail from "../TripList/TripDetail";
+import TripModal from "../modal/TripModal";
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName='Home'
+      initialRouteName="Signup"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -26,7 +27,7 @@ const RootNavigator = () => {
         },
       }}
     >
-      <Screen name='Home' component={Home} options={{ headerShown: false }} />
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="TripList"
         component={TripList}
@@ -38,13 +39,19 @@ const RootNavigator = () => {
         component={TripDetail}
         options={{ headerShown: true }}
       />
+
+      <Screen
+        name="TripModal"
+        component={TripModal}
+        options={{ headerShown: true }}
+      />
       <Screen
         name="Signin"
         component={Signin}
         options={{ headerShown: false }}
       />
       <Screen
-        name='Signup'
+        name="Signup"
         component={Signup}
         options={{ headerShown: false }}
       />

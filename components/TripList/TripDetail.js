@@ -1,18 +1,23 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { AuthTitle } from "../../styles";
-import { ListItem, Left } from "native-base";
-import tripStore from "../../stores/TripStore";
-const TripDetail = ({ route }) => {
+import { AuthTitle, UpdateButtonStyled } from "../../styles";
+import { ListItem, Left, Text } from "native-base";
+import TripModal from "../modal/TripModal";
+const TripDetail = ({ route, navigation }) => {
   const { trip } = route.params;
 
-  // const trip = tripStore.trips.find((trip) => trip.id === tripId);
   return (
     <ListItem>
       <Left>
         <AuthTitle>{trip.tripName}</AuthTitle>
-
         <AuthTitle>{trip.date}</AuthTitle>
+        {/* <TripModal /> */}
+
+        <UpdateButtonStyled
+          onPress={() => navigation.navigate("TripModal", { oldTrip: trip })}
+        >
+          Update
+        </UpdateButtonStyled>
       </Left>
     </ListItem>
   );

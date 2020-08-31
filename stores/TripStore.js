@@ -17,6 +17,19 @@ class TripStore {
     }
   };
 
+  updateTrip = async (updatedTrip) => {
+    try {
+      // const formData = new FormData();
+      // for (const key in updatedTrip) formData.append(key, updatedTrip[key]);
+      await instance.put(`/trips/${updatedTrip.id}`);
+      const trip = this.trips.find((trip) => trip.id === updatedTrip.id);
+      for (const key in updatedTrip) trip[key] = updatedTrip[key];
+      // trip.image = URL.createObjectURL(updatedTrip.image);
+    } catch (error) {
+      console.log("updateTrip -> updatedTrip -> error", error);
+    }
+  };
+
   getTripById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }
 
