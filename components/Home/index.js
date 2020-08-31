@@ -31,10 +31,6 @@ const Home = ({ navigation }) => {
             Click here to Sign in!
           </SignOutButtonText>
         </SignInButton>
-
-        <SignOutButtonText onPress={() => navigation.navigate("TripList")}>
-          Click here to explore trips
-        </SignOutButtonText>
         <SignOutButton onPress={authStore.signout}>
           <SignOutButtonText onPress={() => navigation.navigate("Signup")}>
             Signout
