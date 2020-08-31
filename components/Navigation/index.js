@@ -14,17 +14,12 @@ import Signup from "../authentication/Signup";
 import ProfileDetail from "../ProfileList/ProfileDetail";
 import ProfileList from "../ProfileList";
 
-
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-
-      initialRouteName="Signup"
-
       initialRouteName="Home"
-
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -48,7 +43,6 @@ const RootNavigator = () => {
         component={TripDetail}
         options={{ headerShown: true }}
       />
-
 
       <Screen
         name="TripModal"

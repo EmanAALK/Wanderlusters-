@@ -1,10 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { ListItem, Left, Text } from "native-base";
 
 import { AuthTitle, UpdateButtonStyled } from "../../styles";
-import { ListItem, Left, Text } from "native-base";
-import TripModal from "../modal/TripModal";
 
+import TripModal from "../modal/TripModal";
 
 const TripDetail = ({ route, navigation }) => {
   const { trip } = route.params;
@@ -14,7 +14,6 @@ const TripDetail = ({ route, navigation }) => {
       <Left>
         <AuthTitle>{trip.tripName}</AuthTitle>
         <AuthTitle>{trip.date}</AuthTitle>
-       
 
         <UpdateButtonStyled
           onPress={() => navigation.navigate("TripModal", { oldTrip: trip })}
