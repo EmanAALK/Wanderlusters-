@@ -15,6 +15,11 @@ import {
   SignInButton,
 } from "../../styles";
 
+import { AuthOther } from "../authentication/styles";
+import authStore from "../../stores/AuthStore";
+
+import { observer } from "mobx-react";
+
 const Home = ({ navigation }) => {
   return (
     <HomeBackground
