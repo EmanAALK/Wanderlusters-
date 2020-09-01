@@ -1,4 +1,4 @@
-import { decorate, observable } from "mobx";
+mport { decorate, observable } from "mobx";
 import instance from "./instance";
 
 class TripStore {
@@ -29,6 +29,14 @@ class TripStore {
       console.log("updateTrip -> updatedTrip -> error", error);
     }
   };
+
+
+deleteTrip = async (tripId) => {
+  this.trips = this.trips.filter((trip) => trip.tripId !== tripId);
+  await AsyncStorage.setItem("TripList", JSON.stringify(this.items));
+};
+
+
 
   getTripById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }

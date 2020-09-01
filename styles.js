@@ -140,3 +140,7 @@ export const ModalButtonText = styled.Text`
   font-size: 18px;
 `;
 
+export const DeleteButtonStyled = styled.Text
+  color: #3a160b;
+  font-size: 12px;
+;
