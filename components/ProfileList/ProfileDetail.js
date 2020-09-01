@@ -4,10 +4,8 @@ import { ListItem, Left, Text, Spinner, List } from "native-base";
 import profileStore from "../../stores/ProfileStore";
 import tripStore from "../../stores/TripStore";
 
-const ProfileDetail = ({ route }) => {
+const ProfileDetail = ({ profile }) => {
   if (profileStore.loading) return <Spinner />;
-
-  const { profile } = route.params;
 
   const profileTrips = tripStore.trips.filter(
     (trip) => profile.userId === trip.userId
