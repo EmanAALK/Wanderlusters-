@@ -13,12 +13,7 @@ import {
   SignOutButton,
   SignOutButtonText,
   SignInButton,
-} from "../../styles";
-
-import { AuthOther } from "../authentication/styles";
-import authStore from "../../stores/AuthStore";
-
-import { observer } from "mobx-react";
+} from "./styles";
 
 const Home = ({ navigation }) => {
   return (
