@@ -47,7 +47,7 @@ class AuthStore {
       if (user.exp >= currentTime) {
         await this.setUser(token);
       } else {
-        this.signOut();
+        this.signout();
       }
     }
   };
