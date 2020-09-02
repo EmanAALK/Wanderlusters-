@@ -9,6 +9,7 @@ const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
   const tripList = tripStore.trips.map((trip) => (
+    // REVIEW: يرجم لي والدييينكم remoooove the fragment
     <>
       <TripItem trip={trip} key={trip.id} navigation={navigation} />
     </>

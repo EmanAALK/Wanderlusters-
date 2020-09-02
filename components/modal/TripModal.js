@@ -15,6 +15,7 @@ import tripStore from "../../stores/TripStore";
 
 const TripModal = ({ navigation, route }) => {
   const { oldTrip } = route.params;
+  // REVIEW: If this is working, remove console log
   console.log(oldTrip);
   const [trip, setTrip] = useState(oldTrip);
 
