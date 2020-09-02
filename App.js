@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import RootNavigator from "./components/Navigation";
+import RootNavigator from "./components/Navigation";
 import TabNavigator from "./components/Navigation/TapNavigation";
 
 //Styles
@@ -27,12 +27,12 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <ThemeProvider theme={theme.light}>
-      {/* <NavigationContainer>
-        <RootNavigator />
-      </NavigationContainer> */}
       <NavigationContainer>
-        <TabNavigator />
+        <RootNavigator />
       </NavigationContainer>
+      {/* <NavigationContainer>
+        <TabNavigator />
+      </NavigationContainer> */}
     </ThemeProvider>
   );
 }
