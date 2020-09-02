@@ -1,5 +1,5 @@
 import React from "react";
-import { ListItem } from "native-base";
+import { ListItem, Text } from "native-base";
 
 import { ProfileItemStyled } from "./styles";
 
@@ -8,7 +8,7 @@ const ProfileItem = ({ profile, navigation }) => {
     <ListItem
       onPress={() => navigation.navigate("ProfileDetail", { profile: profile })}
     >
-      <ProfileItemStyled>{profile.bio}</ProfileItemStyled>
+      <Text>{profile.bio}</Text>
     </ListItem>
   );
 };
