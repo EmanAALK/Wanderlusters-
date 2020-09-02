@@ -20,7 +20,7 @@ const TripModal = ({ navigation, route }) => {
 
   const handleSubmit = async () => {
     await tripStore.updateTrip(trip);
-    if (tripStore.trip) navigation.replace("TripDetail");
+    navigation.replace("TripList");
   };
 
   return (

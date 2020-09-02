@@ -11,16 +11,15 @@ import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
 
 const TripItem = ({ trip, navigation }) => {
-  // const username = authStore.user.map((user) => user.id === trip.userId);
+  const tripId = trip.id;
   return (
     <ListItem onPress={() => navigation.navigate("TripDetail", { trip: trip })}>
       <Left>
         <AuthTitle>{trip.tripName}</AuthTitle>
       </Left>
-      <Text> {username.firstName}</Text>
 
       <Right>
-        <DeleteButtonStyled onPress={() => tripStore.deleteTrip(trip.id)}>
+        <DeleteButtonStyled onPress={() => tripStore.deleteTrip(tripId)}>
           <Text>Delete</Text>
         </DeleteButtonStyled>
       </Right>
