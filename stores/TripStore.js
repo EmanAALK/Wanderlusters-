@@ -1,6 +1,7 @@
-mport { decorate, observable } from "mobx";
+import { decorate, observable } from "mobx";
 import instance from "./instance";
-
+import authStore from "./AuthStore";
+import AsyncStorage from "@react-native-community/async-storage";
 class TripStore {
   trips = [];
   loading = true;
@@ -19,24 +20,28 @@ class TripStore {
 
   updateTrip = async (updatedTrip) => {
     try {
-      // const formData = new FormData();
-      // for (const key in updatedTrip) formData.append(key, updatedTrip[key]);
-      await instance.put(`/trips/${updatedTrip.id}`);
+      await instance.put(`/trips/${updatedTrip.id}`, updatedTrip);
       const trip = this.trips.find((trip) => trip.id === updatedTrip.id);
       for (const key in updatedTrip) trip[key] = updatedTrip[key];
       // trip.image = URL.createObjectURL(updatedTrip.image);
     } catch (error) {
-      console.log("updateTrip -> updatedTrip -> error", error);
+      console.log("TripStore -> updatedTrip -> error", error);
     }
   };
 
+  createTrip = async (newTrip) => {
+    try {
+      const res = await instance.post(`/${newTrip.userId}/trips`, newTrip);
+      this.trips.push(res.data);
+    } catch (error) {
+      console.log("TripStore -> createTrip -> error ", error);
+    }
+  };
 
-deleteTrip = async (tripId) => {
-  this.trips = this.trips.filter((trip) => trip.tripId !== tripId);
-  await AsyncStorage.setItem("TripList", JSON.stringify(this.items));
-};
-
-
+  deleteTrip = async (tripId) => {
+    this.trips = this.trips.filter((trip) => trip.tripId !== tripId);
+    await AsyncStorage.setItem("TripList", JSON.stringify(this.items));
+  };
 
   getTripById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }
