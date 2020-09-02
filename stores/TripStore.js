@@ -1,3 +1,4 @@
+// REVIEW: You have a typo in this line
 mport { decorate, observable } from "mobx";
 import instance from "./instance";
 
@@ -9,6 +10,7 @@ class TripStore {
     //error handler
     try {
       const response = await instance.get("/trips");
+      // REVIEW: Remove console log if this is working
       // console.log("NailStore -> fetchItems -> error", response); // test to see where data come from
       this.trips = response.data;
       this.loading = false;

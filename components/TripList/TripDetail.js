@@ -6,6 +6,8 @@ import { AuthTitle, UpdateButtonStyled } from "../../styles";
 
 import TripModal from "../modal/TripModal";
 
+// REVIEW: Clean your imports
+
 const TripDetail = ({ route, navigation }) => {
   const { trip } = route.params;
 
