@@ -21,6 +21,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "android": {
+      "package": "da.a.d2.a2"
+    },
+    "description": ""
   }
 }
