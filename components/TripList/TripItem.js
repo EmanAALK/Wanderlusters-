@@ -2,15 +2,33 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styling
+
 import { ListItem, Left, Right, Text } from "native-base";
-import { AuthTitle } from "../authentication/styles";
+
+
+
+
+import { DeleteButtonStyled, TripTitle } from "./styles";
+
+//Stores
+import tripStore from "../../stores/TripStore";
+
 
 const TripItem = ({ trip, navigation }) => {
   return (
     <ListItem onPress={() => navigation.navigate("TripDetail", { trip: trip })}>
       <Left>
-        <AuthTitle>{trip.tripName}</AuthTitle>
+        <TripTitle>{trip.tripName}</TripTitle>
       </Left>
+
+
+      <Right>
+        <DeleteButtonStyled onPress={() => tripStore.deleteTrip(tripId)}>
+          Delete
+          <Text>Delete</Text>
+        </DeleteButtonStyled>
+      </Right>
+
     </ListItem>
   );
 };

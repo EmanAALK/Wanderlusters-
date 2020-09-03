@@ -1,11 +1,6 @@
 import styled from "styled-components/native";
 import { Icon, Text } from "native-base";
 
-export const UpdateButtonStyled = styled.Text`
-  color: #3a160b;
-  font-size: 12px;
-`;
-
 export const ModalContainer = styled.View`
   flex: 1;
   align-self: stretch;
@@ -47,6 +42,7 @@ export const ModalButtonText = styled.Text`
   font-size: 18px;
 `;
 
+
 export const DeleteButtonStyled = styled.Text`
   color: #3a160b;
   font-size: 12px;
@@ -73,3 +69,5 @@ export const SignOutButtonStyled = styled(Icon)`
 export const SignOuteTextStyled = styled(Text)`
   color: #000000;
 `;
+
+
