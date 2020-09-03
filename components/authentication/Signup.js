@@ -25,7 +25,7 @@ const Signup = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signup(user);
-    if (authStore.user) navigation.replace("ProfileDetail");
+    if (authStore.user) navigation.replace("TripList");
   };
 
   return (

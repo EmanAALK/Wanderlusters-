@@ -1,7 +1,6 @@
 import { decorate, observable } from "mobx";
 import instance from "./instance";
-import authStore from "./AuthStore";
-import AsyncStorage from "@react-native-community/async-storage";
+
 class TripStore {
   trips = [];
   loading = true;
@@ -37,11 +36,6 @@ class TripStore {
       console.log("TripStore -> createTrip -> error ", error);
     }
   };
-
-  // deleteTrip = async (tripId) => {
-  //   await AsyncStorage.setItem("TripList", JSON.stringify(this.items));
-  //   this.trips = this.trips.filter((trip) => trip.tripId !== tripId);
-  // };
 
   deleteTrip = async (tripId) => {
     try {

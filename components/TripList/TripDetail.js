@@ -2,10 +2,9 @@ import React from "react";
 import { observer } from "mobx-react";
 import { ListItem, Left } from "native-base";
 
-import { UpdateButtonStyled } from "../../styles";
 import { AuthTitle } from "../authentication/styles";
 
-const TripDetail = ({ route, navigation }) => {
+const TripDetail = ({ route }) => {
   const { trip } = route.params;
 
   return (
@@ -13,12 +12,6 @@ const TripDetail = ({ route, navigation }) => {
       <Left>
         <AuthTitle>{trip.tripName}</AuthTitle>
         <AuthTitle>{trip.date}</AuthTitle>
-
-        <UpdateButtonStyled
-          onPress={() => navigation.navigate("TripModal", { oldTrip: trip })}
-        >
-          Update
-        </UpdateButtonStyled>
       </Left>
     </ListItem>
   );

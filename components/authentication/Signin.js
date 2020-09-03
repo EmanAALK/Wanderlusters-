@@ -22,9 +22,9 @@ const Signin = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signin(user);
-    if (authStore.user) navigation.replace("Home");
   };
 
+  if (authStore.user) navigation.replace("TripList");
   return (
     <AuthContainer>
       <AuthTitle>Log in to Wanderlust</AuthTitle>
