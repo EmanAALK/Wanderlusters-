@@ -3,13 +3,13 @@ import { observer } from "mobx-react";
 
 //Styling
 import { ListItem, Left, Right } from "native-base";
-import { AuthTitle } from "../authentication/styles";
+import { DTripTitle } from "./styles";
 
 const DiscoverItem = ({ trip, navigation }) => {
   return (
     <ListItem onPress={() => navigation.navigate("TripDetail", { trip: trip })}>
       <Left>
-        <AuthTitle>{trip.tripName}</AuthTitle>
+        <DTripTitle>{trip.tripName}</DTripTitle>
       </Left>
       <Right></Right>
     </ListItem>
