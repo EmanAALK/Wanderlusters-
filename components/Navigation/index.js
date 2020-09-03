@@ -16,6 +16,11 @@ import CreateTripModal from "../modal/CreateTripModal";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 
+import MyProfileBatton from "../buttons/MyProfileButton";
+import SignOutButton from "../buttons/SignOutButton";
+import MyTripsList from "../MyTripsList/MyTripsList";
+import MyTripsDetail from "../MyTripsList/MyTripsDetail";
+
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
@@ -32,23 +37,46 @@ const RootNavigator = () => {
         },
       }}
     >
-      <Screen name='Home' component={Home} options={{ headerShown: false }} />
+
+      <Screen
+        name="Home"
+        component={Home}
+        options={{ headerRight: () => <MyProfileBatton /> }}
+        options={{ headerLeft: () => <SignOutButton /> }}
+      />
+
 
       <Screen
         name='TripList'
         component={TripList}
-        options={{ headerShown: true }}
+        // options={{ headerShown: true }}
+        options={{ headerRight: () => <MyProfileBatton /> }}
+        // options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen
         name='TripDetail'
         component={TripDetail}
-        options={{ headerShown: true }}
+        // options={{ headerShown: true }}
+        options={{ headerRight: () => <MyProfileBatton /> }}
+        options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen
         name='TripModal'
         component={TripModal}
+        options={{ headerShown: true }}
+      />
+
+      <Screen
+        name="MyTripsList"
+        component={MyTripsList}
+        options={{ headerShown: true }}
+      />
+
+      <Screen
+        name="MyTripsDetail"
+        component={MyTripsDetail}
         options={{ headerShown: true }}
       />
       <Screen
@@ -71,13 +99,15 @@ const RootNavigator = () => {
       <Screen
         name='ProfileList'
         component={ProfileList}
-        options={{ headerShown: false }}
+        // options={{ headerShown: false }}
+        options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen
         name='ProfileDetail'
         component={ProfileDetail}
         options={{ headerShown: false }}
+        options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen

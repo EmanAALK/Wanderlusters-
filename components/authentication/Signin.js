@@ -24,9 +24,9 @@ const Signin = ({ navigation }) => {
   const handleSubmit = async () => {
     await authStore.signin(user);
 
-    if (authStore.user) navigation.replace("DiscoverList");
   };
 
+  if (authStore.user) navigation.replace("TripList");
   return (
     <AuthContainer>
       <Title>“Wherever you go becomes a part of you somehow.”</Title>
