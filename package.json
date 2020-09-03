@@ -32,6 +32,20 @@
     "react-native-web": "~0.11.7",
     "styled-components": "^5.1.1"
   },
+  "expo": {
+    "name": "Wander Lusters",
+    "icon": "./path/to/your/app-icon.png",
+    "version": "1.0.0",
+    "slug": "wanderlusters",
+    "ios": {
+      "bundleIdentifier": "iosTest",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "andTest",
+      "versionCode": 1
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0"
