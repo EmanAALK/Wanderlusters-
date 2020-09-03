@@ -1,25 +1,31 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { ListItem, Left, Text, Spinner, List } from "native-base";
-import profileStore from "../../stores/ProfileStore";
+import { ListItem, Text, Spinner, List, Content } from "native-base";
+
+import TripItem from "../TripList/TripItem";
+
 import tripStore from "../../stores/TripStore";
 
-const ProfileDetail = ({ profile }) => {
-  if (profileStore.loading) return <Spinner />;
+const ProfileDetail = ({ route, navigation }) => {
+  const { profile } = route.params;
 
-  const profileTrips = tripStore.trips.filter(
-    (trip) => profile.id === trip.userId
-  );
+  if (tripStore.loading) return <Spinner />;
+
+  const profileTripList = tripStore.trips
+    .filter((trip) => trip.userId === profile.userId)
+    .map((trip) => (
+      <TripItem trip={trip} key={trip.id} navigation={navigation} />
+    ));
+
 
   return (
-    <>
+    <Content>
       <ListItem>
-        <Left>
-          <Text>{profile.bio}</Text>
-        </Left>
+        <Text>{profile.bio}</Text>
       </ListItem>
-      <List>{profileTrips}</List>
-    </>
+
+      <List>{profileTripList}</List>
+    </Content>
   );
 };
 

@@ -13,7 +13,7 @@ class TripStore {
       this.trips = response.data;
       this.loading = false;
     } catch (error) {
-      console.error("TripStore -> fetchTrips -> error", error);
+      console.log("TripStore -> fetchTrips -> error", error);
     }
   };
 
