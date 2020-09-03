@@ -19,6 +19,7 @@ const TripItem = ({ trip, navigation }) => {
       <Right>
         <DeleteButtonStyled onPress={() => tripStore.deleteTrip(tripId)}>
           Delete
+          <Text>Delete</Text>
         </DeleteButtonStyled>
       </Right>
     </ListItem>
