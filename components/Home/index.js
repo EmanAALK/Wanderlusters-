@@ -16,6 +16,10 @@ import {
 } from "./styles";
 
 const Home = ({ navigation }) => {
+  const handleSubmit = async () => {
+    await authStore.signout();
+    navigation.replace("Signin");
+  };
   return (
     <HomeBackground
       source={{
@@ -31,10 +35,8 @@ const Home = ({ navigation }) => {
             Click here to Sign in!
           </SignOutButtonText>
         </SignInButton>
-        <SignOutButton onPress={authStore.signout}>
-          <SignOutButtonText onPress={() => navigation.navigate("Signup")}>
-            Signout
-          </SignOutButtonText>
+        <SignOutButton onPress={handleSubmit}>
+          <SignOutButtonText>Signout</SignOutButtonText>
         </SignOutButton>
       </OverLayContainer>
     </HomeBackground>
