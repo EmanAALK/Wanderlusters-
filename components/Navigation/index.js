@@ -7,21 +7,21 @@ import Home from "../Home";
 import TripList from "../TripList";
 import TripDetail from "../TripList/TripDetail";
 import TripModal from "../modal/TripModal";
-
-import CreateTripModal from "../modal/CreateTripModal";
-
-
-import Signin from "../authentication/Signin";
-import Signup from "../authentication/Signup";
+import DiscoverList from "../DiscoverList/index";
 import ProfileDetail from "../ProfileList/ProfileDetail";
 import ProfileList from "../ProfileList";
+import CreateTripModal from "../modal/CreateTripModal";
+
+//Stores
+import Signin from "../authentication/Signin";
+import Signup from "../authentication/Signup";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Signin"
+      initialRouteName='Signin'
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -32,51 +32,57 @@ const RootNavigator = () => {
         },
       }}
     >
-      <Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Screen name='Home' component={Home} options={{ headerShown: false }} />
 
       <Screen
-        name="TripList"
+        name='TripList'
         component={TripList}
         options={{ headerShown: true }}
       />
 
       <Screen
-        name="TripDetail"
+        name='TripDetail'
         component={TripDetail}
         options={{ headerShown: true }}
       />
 
       <Screen
-        name="TripModal"
+        name='TripModal'
         component={TripModal}
         options={{ headerShown: true }}
       />
       <Screen
-        name="CreateTripModal"
+        name='CreateTripModal'
         component={CreateTripModal}
         options={{ headerShown: true }}
       />
       <Screen
-        name="Signin"
+        name='Signin'
         component={Signin}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name="Signup"
+        name='Signup'
         component={Signup}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name="ProfileList"
+        name='ProfileList'
         component={ProfileList}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name="ProfileDetail"
+        name='ProfileDetail'
         component={ProfileDetail}
+        options={{ headerShown: false }}
+      />
+
+      <Screen
+        name='DiscoverList'
+        component={DiscoverList}
         options={{ headerShown: false }}
       />
     </Navigator>

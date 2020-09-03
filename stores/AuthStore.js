@@ -34,8 +34,9 @@ class AuthStore {
     try {
       const res = await instance.post("/signup", userData);
       await this.setUser(res.data.token);
+      console.log("AuthStore -> signup -> res", res.data);
     } catch (error) {
-      console.error(error);
+      console.log("AuthStore -> signup -> error", error);
     }
   };
 
@@ -47,7 +48,7 @@ class AuthStore {
       if (user.exp >= currentTime) {
         await this.setUser(token);
       } else {
-        this.signOut();
+        this.signout();
       }
     }
   };

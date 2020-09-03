@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-
+import DatePicker from "react-native-datepicker";
+import moment from "moment";
 //Styles
 import {
   ModalContainer,
@@ -20,7 +21,9 @@ const CreateTripModal = ({ navigation }) => {
     description: "",
     image: "",
   });
+  const format = moment().format("DD/MM/YYYY");
 
+  console.log(format);
   const handleSubmit = async () => {
     await tripStore.createTrip(trip);
     navigation.replace("TripList");
@@ -34,10 +37,34 @@ const CreateTripModal = ({ navigation }) => {
         placeholder="Trip Name"
         placeholderTextColor="#A6AEC1"
       />
-      <ModalTextInput
+      {/* <ModalTextInput
         onChangeText={(date) => setTrip({ ...trip, date })}
         placeholder="Date"
         placeholderTextColor="#A6AEC1"
+      /> */}
+
+      <DatePicker
+        style={{ width: 200 }}
+        // date={this.state.date}
+        mode="date"
+        placeholder="select date"
+        format={format}
+        // minDate="01/01/1990"
+        // maxDate="12/12/2100"
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: "absolute",
+            left: 0,
+            top: 4,
+            marginLeft: 0,
+          },
+          dateInput: {
+            marginLeft: 36,
+          },
+        }}
+        onChangeText={(date) => setTrip({ ...trip, date })}
       />
       <ModalTextInput
         // event handler is repeated
