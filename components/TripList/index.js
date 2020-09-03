@@ -1,10 +1,15 @@
-import TripItem from "./TripItem";
-
 import React from "react";
 import { observer } from "mobx-react";
+
+//Components
+import TripItem from "./TripItem";
+
+//Stores
 import tripStore from "../../stores/TripStore";
+
+//Styles
 import { Content, Spinner, List } from "native-base";
-import { AddButtonStyled } from "../../styles";
+import { AddButtonStyled } from "./styles";
 
 const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
