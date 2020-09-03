@@ -1,5 +1,11 @@
 import styled from "styled-components/native";
 
+export const Title = styled.Text`
+  color: #3a160b;
+  font-size: 38;
+  text-align: center;
+`;
+
 export const AuthContainer = styled.View`
   flex: 1;
   align-self: stretch;
@@ -45,4 +51,17 @@ export const AuthButtonText = styled.Text`
 export const AuthOther = styled.Text`
   color: #3a160b;
   margin-top: 15px;
+`;
+
+export const SignInButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: green;
+  margin-top: 30px;
+`;
+
+export const SignOutButtonText = styled.Text`
+  color: #3a160b;
+  font-size: 12px;
 `;

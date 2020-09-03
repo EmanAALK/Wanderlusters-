@@ -12,6 +12,7 @@ import {
   AuthButtonText,
   AuthButton,
   AuthOther,
+  Title,
 } from "./styles";
 
 const Signin = ({ navigation }) => {
@@ -22,21 +23,22 @@ const Signin = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await authStore.signin(user);
-    if (authStore.user) navigation.replace("TripList");
+    if (authStore.user) navigation.replace("Home");
   };
 
   return (
     <AuthContainer>
+      <Title>“Wherever you go becomes a part of you somehow.”</Title>
       <AuthTitle>Log in to Wanderlust</AuthTitle>
       <AuthTextInput
         onChangeText={(username) => setUser({ ...user, username })}
-        placeholder="Username"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Username'
+        placeholderTextColor='#A6AEC1'
       />
       <AuthTextInput
         onChangeText={(password) => setUser({ ...user, password })}
-        placeholder="Password"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Password'
+        placeholderTextColor='#A6AEC1'
         secureTextEntry={true}
       />
       <AuthButton onPress={handleSubmit}>

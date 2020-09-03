@@ -7,8 +7,6 @@ import authStore from "../../stores/AuthStore";
 //Styles
 import {
   HomeBackground,
-  TopStyling,
-  Title,
   OverLayContainer,
   SignOutButton,
   SignOutButtonText,
@@ -16,6 +14,10 @@ import {
 } from "./styles";
 
 const Home = ({ navigation }) => {
+  const handleSubmit = async () => {
+    await authStore.signout();
+    navigation.replace("Signin");
+  };
   return (
     <HomeBackground
       source={{
@@ -23,18 +25,13 @@ const Home = ({ navigation }) => {
       }}
     >
       <OverLayContainer>
-        <TopStyling>
-          <Title>“Wherever you go becomes a part of you somehow.”</Title>
-        </TopStyling>
         <SignInButton>
           <SignOutButtonText onPress={() => navigation.navigate("Signin")}>
             Click here to Sign in!
           </SignOutButtonText>
         </SignInButton>
-        <SignOutButton onPress={authStore.signout}>
-          <SignOutButtonText onPress={() => navigation.navigate("Signup")}>
-            Signout
-          </SignOutButtonText>
+        <SignOutButton onPress={handleSubmit}>
+          <SignOutButtonText>Signout</SignOutButtonText>
         </SignOutButton>
       </OverLayContainer>
     </HomeBackground>
