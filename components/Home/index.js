@@ -1,25 +1,15 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-// Stores
-import authStore from "../../stores/AuthStore";
-
 //Styles
 import {
   HomeBackground,
-  TopStyling,
-  Title,
   OverLayContainer,
-  SignOutButton,
   SignOutButtonText,
   SignInButton,
 } from "./styles";
 
 const Home = ({ navigation }) => {
-  const handleSubmit = async () => {
-    await authStore.signout();
-    navigation.replace("Signin");
-  };
   return (
     <HomeBackground
       source={{
@@ -27,17 +17,11 @@ const Home = ({ navigation }) => {
       }}
     >
       <OverLayContainer>
-        <TopStyling>
-          <Title>“Wherever you go becomes a part of you somehow.”</Title>
-        </TopStyling>
         <SignInButton>
           <SignOutButtonText onPress={() => navigation.navigate("Signin")}>
             Click here to Sign in!
           </SignOutButtonText>
         </SignInButton>
-        <SignOutButton onPress={handleSubmit}>
-          <SignOutButtonText>Signout</SignOutButtonText>
-        </SignOutButton>
       </OverLayContainer>
     </HomeBackground>
   );

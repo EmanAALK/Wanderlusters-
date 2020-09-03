@@ -17,6 +17,7 @@ const ProfileDetail = ({ route, navigation }) => {
       <TripItem trip={trip} key={trip.id} navigation={navigation} />
     ));
 
+
   return (
     <Content>
       <ListItem>
