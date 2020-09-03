@@ -7,8 +7,6 @@ import authStore from "../../stores/AuthStore";
 //Styles
 import {
   HomeBackground,
-  TopStyling,
-  Title,
   OverLayContainer,
   SignOutButton,
   SignOutButtonText,
@@ -27,9 +25,6 @@ const Home = ({ navigation }) => {
       }}
     >
       <OverLayContainer>
-        <TopStyling>
-          <Title>“Wherever you go becomes a part of you somehow.”</Title>
-        </TopStyling>
         <SignInButton>
           <SignOutButtonText onPress={() => navigation.navigate("Signin")}>
             Click here to Sign in!

@@ -1,10 +1,5 @@
 import styled from "styled-components/native";
 
-export const UpdateButtonStyled = styled.Text`
-  color: #3a160b;
-  font-size: 12px;
-`;
-
 export const ModalContainer = styled.View`
   flex: 1;
   align-self: stretch;
@@ -44,13 +39,4 @@ export const ModalButtonText = styled.Text`
   color: #fcfdff;
   font-weight: bold;
   font-size: 18px;
-`;
-
-export const DeleteButtonStyled = styled.Text`
-  color: #3a160b;
-  font-size: 12px;
-`;
-export const AddButtonStyled = styled.Text`
-  color: #3a160b;
-  font-size: 12px;
 `;

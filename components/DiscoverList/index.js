@@ -7,6 +7,8 @@ import DiscoverItem from "./DiscoverItem";
 
 //Stores
 import authStore from "../../stores/AuthStore";
+
+//Stores
 import tripStore from "../../stores/TripStore";
 
 const DiscoverList = ({ navigation }) => {
