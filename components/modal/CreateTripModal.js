@@ -21,10 +21,6 @@ const CreateTripModal = ({ navigation }) => {
     description: "",
     image: "",
   });
-  const format = moment().format("DD/MM/YYYY");
-
-
-  console.log(format);
 
   const handleSubmit = async () => {
     console.log("check", trip.date);
@@ -41,16 +37,14 @@ const CreateTripModal = ({ navigation }) => {
         placeholderTextColor="#A6AEC1"
       />
 
-
       <DatePicker
         style={{ width: 200 }}
-        // date={this.state.date}
+        date={trip.date}
         mode="date"
         placeholder="select date"
-        format={format}
-        // minDate="01/01/1990"
-        // maxDate="12/12/2100"
-
+        format="YYYY-MM-DD"
+        // minDate="2016-05-01"
+        // maxDate="2016-06-01"
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
         customStyles={{
@@ -63,14 +57,13 @@ const CreateTripModal = ({ navigation }) => {
           dateInput: {
             marginLeft: 36,
           },
-
           // ... You can check the source to find the other keys.
         }}
         onDateChange={(date) => {
           console.log("date", date);
           return setTrip({ ...trip, date });
         }}
-/>
+      />
 
       <ModalTextInput
         // event handler is repeated

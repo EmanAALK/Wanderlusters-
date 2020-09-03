@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import { ListItem, Left } from "native-base";
 
-import { UpdateButtonStyled } from "../../styles";
+import { UpdateButtonStyled } from "../ProfileList/styles";
 import { AuthTitle } from "../authentication/styles";
 
 const MyTripsDetail = ({ route, navigation }) => {

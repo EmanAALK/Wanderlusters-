@@ -3,16 +3,9 @@ import { observer } from "mobx-react";
 
 //Styling
 
-import { ListItem, Left, Right, Text } from "native-base";
+import { ListItem, Left } from "native-base";
 
-
-
-
-import { DeleteButtonStyled, TripTitle } from "./styles";
-
-//Stores
-import tripStore from "../../stores/TripStore";
-
+import { TripTitle } from "./styles";
 
 const TripItem = ({ trip, navigation }) => {
   return (
@@ -20,15 +13,6 @@ const TripItem = ({ trip, navigation }) => {
       <Left>
         <TripTitle>{trip.tripName}</TripTitle>
       </Left>
-
-
-      <Right>
-        <DeleteButtonStyled onPress={() => tripStore.deleteTrip(tripId)}>
-          Delete
-          <Text>Delete</Text>
-        </DeleteButtonStyled>
-      </Right>
-
     </ListItem>
   );
 };
