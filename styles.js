@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Icon, Text } from "native-base";
 
 export const UpdateButtonStyled = styled.Text`
   color: #3a160b;
@@ -53,4 +54,22 @@ export const DeleteButtonStyled = styled.Text`
 export const AddButtonStyled = styled.Text`
   color: #3a160b;
   font-size: 12px;
+`;
+
+export const MyProfileButtonStyled = styled(Icon)`
+  color: #000000;
+  margin-right: 10px;
+`;
+
+export const MyProfileTextStyled = styled(Text)`
+  color: #000000;
+`;
+
+export const SignOutButtonStyled = styled(Icon)`
+  color: #000000;
+  margin-right: 10px;
+`;
+
+export const SignOuteTextStyled = styled(Text)`
+  color: #000000;
 `;

@@ -8,7 +8,7 @@ const ProfileDetail = ({ profile }) => {
   if (profileStore.loading) return <Spinner />;
 
   const profileTrips = tripStore.trips.filter(
-    (trip) => profile.userId === trip.userId
+    (trip) => profile.id === trip.userId
   );
 
   return (
