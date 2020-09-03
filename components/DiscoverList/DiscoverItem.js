@@ -7,6 +7,9 @@ import { DTripTitle } from "./styles";
 
 const DiscoverItem = ({ trip, navigation }) => {
   return (
+
+    <ListItem
+      onPress={() => navigation.navigate("DiscoverDetail", { trip: trip })}>
     <ListItem onPress={() => navigation.navigate("TripDetail", { trip: trip })}>
       <Left>
         <DTripTitle>{trip.tripName}</DTripTitle>
