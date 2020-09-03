@@ -10,7 +10,6 @@ import TripModal from "../modal/TripModal";
 
 import CreateTripModal from "../modal/CreateTripModal";
 
-
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import ProfileDetail from "../ProfileList/ProfileDetail";
