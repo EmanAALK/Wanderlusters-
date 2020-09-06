@@ -9,7 +9,7 @@ import tripStore from "../../stores/TripStore";
 
 //Styles
 import { Content, Spinner, List } from "native-base";
-import { AddButtonStyled } from "./styles";
+import { AddButtonStyled, ButtonContainer } from "./styles";
 
 const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -19,12 +19,14 @@ const TripList = ({ navigation }) => {
   ));
 
   return (
+
     <Content>
       <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
         Add Trip
       </AddButtonStyled>
       <List>{tripList}</List>
     </Content>
+
   );
 };
 
