@@ -9,7 +9,7 @@ import tripStore from "../../stores/TripStore";
 
 //Styles
 import { Content, Spinner, List } from "native-base";
-import { AddButtonStyled } from "./styles";
+import { AddButtonStyled, ButtonContainer } from "./styles";
 
 const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -19,12 +19,17 @@ const TripList = ({ navigation }) => {
   ));
 
   return (
-    <Content>
-      <AddButtonStyled onPress={() => navigation.navigate("CreateTripModal")}>
-        Add Trip
-      </AddButtonStyled>
-      <List>{tripList}</List>
-    </Content>
+    <>
+      <Content>
+        <List>{tripList}</List>
+      </Content>
+      <ButtonContainer>
+        <AddButtonStyled onPress={() => navigation.navigate("CreateTripModal")}>
+          Add a Trip
+          {/* <Image source={require("./")} /> */}
+        </AddButtonStyled>
+      </ButtonContainer>
+    </>
   );
 };
 
