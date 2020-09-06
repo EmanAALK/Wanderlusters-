@@ -4,8 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
 import Home from "../Home";
-import TripList from "../TripList";
-import TripDetail from "../TripList/TripDetail";
 import EditTripForm from "../modal/EditTripForm";
 import DiscoverList from "../DiscoverList/index";
 import ProfileDetail from "../ProfileList/ProfileDetail";
@@ -16,17 +14,15 @@ import EditProfileForm from "../modal/EditProfileForm";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 
-import MyProfileBatton from "../buttons/MyProfileButton";
+import MyProfileButton from "../buttons/MyProfileButton";
 import SignOutButton from "../buttons/SignOutButton";
-import MyTripsList from "../MyTripsList/MyTripsList";
-import MyTripsDetail from "../MyTripsList/MyTripsDetail";
-
+import DiscoverDetail from "../DiscoverList/DiscoverDetail";
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="MyTripsList"
+      initialRouteName="Signin"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -40,28 +36,11 @@ const RootNavigator = () => {
       }}
     >
       <Screen
-        name='Home'
+        name="Home"
         component={Home}
-        options={{ headerRight: () => <MyProfileBatton /> }}
+        options={{ headerRight: () => <MyProfileButton /> }}
         options={{ headerLeft: () => <SignOutButton /> }}
         options={{ title: "Home" }}
-      />
-
-      <Screen
-        name="TripList"
-        component={TripList}
-        // options={{ headerShown: true }}
-        options={{ headerRight: () => <MyProfileBatton /> }}
-        // options={{ headerLeft: () => <SignOutButton /> }}
-        options={{ title: "My Trips" }}
-      />
-
-      <Screen
-        name="TripDetail"
-        component={TripDetail}
-        // options={{ headerShown: true }}
-        options={{ headerRight: () => <MyProfileBatton /> }}
-        options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen
@@ -74,17 +53,7 @@ const RootNavigator = () => {
         component={EditProfileForm}
         options={{ headerShown: true }}
       />
-      <Screen
-        name='MyTripsList'
-        component={MyTripsList}
-        options={{ headerShown: true }}
-      />
 
-      <Screen
-        name='MyTripsDetail'
-        component={MyTripsDetail}
-        options={{ headerShown: true }}
-      />
       <Screen
         name="CreateTripForm"
         component={CreateTripForm}
@@ -119,6 +88,14 @@ const RootNavigator = () => {
       <Screen
         name="DiscoverList"
         component={DiscoverList}
+        options={{ headerShown: true }}
+        options={{ title: "Discover" }}
+        options={{ headerRight: () => <MyProfileButton /> }}
+        // options={{ headerLeft: () => <SignOutButton /> }}
+      />
+      <Screen
+        name="DiscoverDetail"
+        component={DiscoverDetail}
         options={{ headerShown: false }}
         options={{ title: "Discover" }}
       />

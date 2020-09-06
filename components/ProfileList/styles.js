@@ -50,11 +50,6 @@ export const SignOutButtonText = styled.Text`
   font-size: 18px;
 `;
 
-export const UpdateButtonStyled = styled.Text`
-  color: #3a160b;
-  font-size: 12px;
-`;
-
 export const ModalContainer = styled.View`
   flex: 1;
   align-self: stretch;

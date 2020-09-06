@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Home from "../Home";
-import TripList from "../TripList";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import ProfileDetail from "../ProfileList/ProfileDetail";
@@ -30,11 +29,6 @@ const TabNavigator = () => {
         name="Home"
         component={Home}
         options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="TripList"
-        component={TripList}
-        options={{ headerShown: true }}
       />
 
       <Tab.Screen
