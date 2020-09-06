@@ -5,11 +5,9 @@ import { Spinner, Content, List } from "native-base";
 // Stores
 import profileStore from "../../stores/ProfileStore";
 import authStore from "../../stores/AuthStore";
-
+import MyProfileButton from "../buttons/MyProfileButton";
 // Styles
 import ProfileItem from "./ProfileItem";
-
-import { SignOutButton, SignOutButtonText } from "./styles";
 
 const ProfileList = ({ navigation }) => {
   if (profileStore.loading) return <Spinner />;
@@ -17,6 +15,7 @@ const ProfileList = ({ navigation }) => {
   const profileList = profileStore.profiles.map((profile) => (
     <ProfileItem profile={profile} key={profile.id} navigation={navigation} />
   ));
+
   return (
     <Content>
       <List>{profileList}</List>

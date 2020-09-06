@@ -24,7 +24,9 @@ class ProfileStore {
         (profile) => profile.id === updatedProfile.id
       );
       for (const key in updatedProfile) profiles[key] = updatedProfile[key];
-    } catch (error) {}
+    } catch (error) {
+      console.log("ProfileStore -> updateProfile -> error", error);
+    }
   };
 }
 

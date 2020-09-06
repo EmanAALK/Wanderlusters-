@@ -5,17 +5,32 @@ import { observer } from "mobx-react";
 import { TripTitle } from "./styles";
 
 //Styles
-import { ListItem, Left } from "native-base";
+import { ListItem, Left, Button, List, Thumbnail, Image } from "native-base";
+import authStore from "../../stores/AuthStore";
+import { useNavigation } from "@react-navigation/native";
 
-const TripDetail = ({ route }) => {
+const TripDetail = ({ route, navigation }) => {
   const { trip } = route.params;
 
   return (
     <ListItem>
       <Left>
-        <TripTitle>{trip.tripName}</TripTitle>
-        <TripTitle>{trip.date}</TripTitle>
+        <TripTitle
+          transparent
+          light
+          onPress={() => navigation.navigate("ProfileDetail")}
+        >
+          {trip.tripName}
+        </TripTitle>
       </Left>
+
+      <TripTitle>{trip.date}</TripTitle>
+      {/* 
+      {trip.image} */}
+
+      {/* <Right>
+        <TripTitle>{user}</TripTitle>
+      </Right> */}
     </ListItem>
   );
 };

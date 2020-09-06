@@ -14,29 +14,25 @@ import {
 //Stores
 import tripStore from "../../stores/TripStore";
 
-const CreateTripModal = ({ navigation }) => {
-  const [trip, setTrip] = useState({
-    tripName: "",
-    date: "",
-    description: "",
-    image: "",
-  });
+const EditTripForm = ({ navigation, route }) => {
+  const { oldTrip } = route.params;
+
+  const [trip, setTrip] = useState(oldTrip);
 
   const handleSubmit = async () => {
-    console.log("check", trip.date);
-    await tripStore.createTrip(trip);
+    await tripStore.updateTrip(trip);
     navigation.replace("TripList");
   };
 
   return (
     <ModalContainer>
-      <ModalTitle>Add Trip</ModalTitle>
+      <ModalTitle>Edit Trip</ModalTitle>
       <ModalTextInput
         onChangeText={(tripName) => setTrip({ ...trip, tripName })}
         placeholder="Trip Name"
+        value={trip.tripName}
         placeholderTextColor="#A6AEC1"
       />
-
       <DatePicker
         style={{ width: 200 }}
         date={trip.date}
@@ -60,20 +56,20 @@ const CreateTripModal = ({ navigation }) => {
           // ... You can check the source to find the other keys.
         }}
         onDateChange={(date) => {
-          console.log("date", date);
           return setTrip({ ...trip, date });
         }}
       />
-
       <ModalTextInput
         // event handler is repeated
         onChangeText={(description) => setTrip({ ...trip, description })}
         placeholder="Description"
+        value={trip.description}
         placeholderTextColor="#A6AEC1"
       />
       <ModalTextInput
         onChangeText={(image) => setTrip({ ...trip, image })}
         placeholder="Image"
+        value={trip.image}
         placeholderTextColor="#A6AEC1"
       />
 
@@ -84,4 +80,4 @@ const CreateTripModal = ({ navigation }) => {
   );
 };
 
-export default observer(CreateTripModal);
+export default observer(EditTripForm);

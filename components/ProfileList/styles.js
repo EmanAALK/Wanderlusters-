@@ -18,6 +18,11 @@ export const Title = styled.Text`
   text-align: center;
 `;
 
+export const BlackTitle = styled.Text`
+  color: black;
+  font-size: 20;
+  text-align: center;
+`;
 export const OverLayContainer = styled.View`
   flex: 1;
   background-color: rgba(100, 40, 60, 0.4);

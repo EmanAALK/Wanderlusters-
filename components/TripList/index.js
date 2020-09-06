@@ -20,7 +20,7 @@ const TripList = ({ navigation }) => {
 
   return (
     <Content>
-      <AddButtonStyled onPress={() => navigation.navigate("CreateTripModal")}>
+      <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
         Add Trip
       </AddButtonStyled>
       <List>{tripList}</List>

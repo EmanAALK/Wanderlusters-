@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import DatePicker from "react-native-datepicker";
-import moment from "moment";
+
 //Styles
 import {
   ModalContainer,
@@ -14,25 +14,29 @@ import {
 //Stores
 import tripStore from "../../stores/TripStore";
 
-const TripModal = ({ navigation, route }) => {
-  const { oldTrip } = route.params;
-
-  const [trip, setTrip] = useState(oldTrip);
+const CreateTripForm = ({ navigation }) => {
+  const [trip, setTrip] = useState({
+    tripName: "",
+    date: "",
+    description: "",
+    image: "",
+  });
 
   const handleSubmit = async () => {
-    await tripStore.updateTrip(trip);
+    console.log("check", trip.date);
+    await tripStore.createTrip(trip);
     navigation.replace("TripList");
   };
 
   return (
     <ModalContainer>
-      <ModalTitle>Edit Trip</ModalTitle>
+      <ModalTitle>Add Trip</ModalTitle>
       <ModalTextInput
         onChangeText={(tripName) => setTrip({ ...trip, tripName })}
         placeholder="Trip Name"
-        value={trip.tripName}
         placeholderTextColor="#A6AEC1"
       />
+
       <DatePicker
         style={{ width: 200 }}
         date={trip.date}
@@ -56,22 +60,22 @@ const TripModal = ({ navigation, route }) => {
           // ... You can check the source to find the other keys.
         }}
         onDateChange={(date) => {
+          console.log("date", date);
           return setTrip({ ...trip, date });
         }}
       />
+
       <ModalTextInput
         // event handler is repeated
         onChangeText={(description) => setTrip({ ...trip, description })}
         placeholder="Description"
-        value={trip.description}
         placeholderTextColor="#A6AEC1"
       />
-      <ModalTextInput
+      {/* <ModalTextInput
         onChangeText={(image) => setTrip({ ...trip, image })}
         placeholder="Image"
-        value={trip.image}
         placeholderTextColor="#A6AEC1"
-      />
+      /> */}
 
       <ModalButton onPress={handleSubmit}>
         <ModalButtonText>Save Changes</ModalButtonText>
@@ -80,4 +84,4 @@ const TripModal = ({ navigation, route }) => {
   );
 };
 
-export default observer(TripModal);
+export default observer(CreateTripForm);
