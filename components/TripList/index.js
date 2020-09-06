@@ -19,17 +19,14 @@ const TripList = ({ navigation }) => {
   ));
 
   return (
-    <>
-      <Content>
-        <List>{tripList}</List>
-      </Content>
-      <ButtonContainer>
-        <AddButtonStyled onPress={() => navigation.navigate("CreateTripModal")}>
-          Add a Trip
-          {/* <Image source={require("./")} /> */}
-        </AddButtonStyled>
-      </ButtonContainer>
-    </>
+
+    <Content>
+      <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
+        Add Trip
+      </AddButtonStyled>
+      <List>{tripList}</List>
+    </Content>
+
   );
 };
 

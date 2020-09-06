@@ -1,17 +1,17 @@
 import React from "react";
-
+import { observer } from "mobx-react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
 import Home from "../Home";
 import TripList from "../TripList";
 import TripDetail from "../TripList/TripDetail";
-import TripModal from "../modal/TripModal";
+import EditTripForm from "../modal/EditTripForm";
 import DiscoverList from "../DiscoverList/index";
 import ProfileDetail from "../ProfileList/ProfileDetail";
 import ProfileList from "../ProfileList";
-import CreateTripModal from "../modal/CreateTripModal";
-
+import CreateTripForm from "../modal/CreateTripForm";
+import EditProfileForm from "../modal/EditProfileForm";
 //Stores
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
@@ -26,7 +26,7 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName='Signin'
+      initialRouteName="MyTripsList"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -48,7 +48,7 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name='TripList'
+        name="TripList"
         component={TripList}
         // options={{ headerShown: true }}
         options={{ headerRight: () => <MyProfileBatton /> }}
@@ -57,7 +57,7 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name='TripDetail'
+        name="TripDetail"
         component={TripDetail}
         // options={{ headerShown: true }}
         options={{ headerRight: () => <MyProfileBatton /> }}
@@ -65,11 +65,15 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name='TripModal'
-        component={TripModal}
+        name="EditTripForm"
+        component={EditTripForm}
         options={{ headerShown: true }}
       />
-
+      <Screen
+        name="EditProfileForm"
+        component={EditProfileForm}
+        options={{ headerShown: true }}
+      />
       <Screen
         name='MyTripsList'
         component={MyTripsList}
@@ -82,38 +86,38 @@ const RootNavigator = () => {
         options={{ headerShown: true }}
       />
       <Screen
-        name='CreateTripModal'
-        component={CreateTripModal}
+        name="CreateTripForm"
+        component={CreateTripForm}
         options={{ headerShown: true }}
       />
       <Screen
-        name='Signin'
+        name="Signin"
         component={Signin}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name='Signup'
+        name="Signup"
         component={Signup}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name='ProfileList'
+        name="ProfileList"
         component={ProfileList}
         // options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen
-        name='ProfileDetail'
+        name="ProfileDetail"
         component={ProfileDetail}
         options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
       />
 
       <Screen
-        name='DiscoverList'
+        name="DiscoverList"
         component={DiscoverList}
         options={{ headerShown: false }}
         options={{ title: "Discover" }}
@@ -122,4 +126,4 @@ const RootNavigator = () => {
   );
 };
 
-export default RootNavigator;
+export default observer(RootNavigator);

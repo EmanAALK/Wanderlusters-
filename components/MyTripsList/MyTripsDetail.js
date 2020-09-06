@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { ListItem, Left } from "native-base";
+import { ListItem, Left, Right } from "native-base";
 
 import { UpdateButtonStyled } from "../ProfileList/styles";
 import { AuthTitle } from "../authentication/styles";
@@ -10,16 +10,17 @@ const MyTripsDetail = ({ route, navigation }) => {
 
   return (
     <ListItem>
-      <Left>
+      <Right>
         <AuthTitle>{trip.tripName}</AuthTitle>
         <AuthTitle>{trip.date}</AuthTitle>
+        <AuthTitle>{trip.image}</AuthTitle>
 
         <UpdateButtonStyled
-          onPress={() => navigation.navigate("TripModal", { oldTrip: trip })}
+          onPress={() => navigation.navigate("EditTripForm", { oldTrip: trip })}
         >
           Update
         </UpdateButtonStyled>
-      </Left>
+      </Right>
     </ListItem>
   );
 };
