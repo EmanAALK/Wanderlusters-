@@ -2,22 +2,44 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styling
-import { ListItem, Left, Right, Text } from "native-base";
-import { DTripTitle, DeleteButtonStyled } from "./styles";
+import { ListItem, Left, Right, Text, Image, View } from "native-base";
+import { DTripTitle, DeleteButtonStyled, UpdateButtonStyled } from "./styles";
 import tripStore from "../../stores/TripStore";
+import profileStore from "../../stores/ProfileStore";
+import authStore from "../../stores/AuthStore";
 const DiscoverItem = ({ trip, navigation }) => {
   return (
     <ListItem
       onPress={() => navigation.navigate("DiscoverDetail", { trip: trip })}
     >
-      <Left>
-        <DTripTitle>{trip.tripName}</DTripTitle>
-      </Left>
-      <Right>
-        <DeleteButtonStyled onPress={() => tripStore.deleteTrip(tripId)}>
-          <Text>Delete</Text>
-        </DeleteButtonStyled>
-      </Right>
+      {trip.userId === authStore.user.id ? (
+        <>
+          <Left>
+            <DTripTitle>{trip.tripName}</DTripTitle>
+          </Left>
+          <Right>
+            <DeleteButtonStyled onPress={() => tripStore.deleteTrip(trip.id)}>
+              <Text>Delete</Text>
+            </DeleteButtonStyled>
+            <UpdateButtonStyled
+              onPress={() =>
+                navigation.navigate("EditTripForm", { oldTrip: trip })
+              }
+            >
+              Update
+            </UpdateButtonStyled>
+          </Right>
+        </>
+      ) : (
+        <>
+          <Left>
+            <DTripTitle>{trip.tripName}</DTripTitle>
+          </Left>
+          <Right>
+            <Text>{trip.image}</Text>
+          </Right>
+        </>
+      )}
     </ListItem>
   );
 };
