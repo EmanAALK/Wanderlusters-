@@ -1,9 +1,10 @@
 import styled from "styled-components/native";
 
 export const Title = styled.Text`
-  color: #3a160b;
-  font-size: 38;
-  text-align: center;
+  color: #cea146;
+  font-size: 20;
+  margin-bottom: 80px;
+  text-align: left;
 `;
 
 export const AuthContainer = styled.View`
@@ -17,9 +18,9 @@ export const AuthContainer = styled.View`
 `;
 
 export const AuthTitle = styled.Text`
-  color: #3a160b;
+  color: #cea146;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20;
   margin-bottom: 20px;
   border-bottom-color: #000000;
 `;
@@ -30,7 +31,7 @@ export const AuthTextInput = styled.TextInput`
   height: 40px;
   margin-bottom: 30px;
   color: #000000;
-  border-bottom-color: #3a160b;
+  border-bottom-color: #cea146;
   border-bottom-width: 0.5px;
 `;
 
@@ -39,12 +40,12 @@ export const AuthButton = styled.TouchableOpacity`
   align-items: center;
   padding: 12px;
   border-radius: 35px;
-  background-color: #3a160b;
+  background-color: #cea146;
   margin-top: 30px;
 `;
 
 export const AuthButtonText = styled.Text`
-  color: #fcfdff;
+  color: #ffffff;
   font-size: 18px;
 `;
 

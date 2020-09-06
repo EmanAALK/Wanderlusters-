@@ -30,21 +30,22 @@ const RootNavigator = () => {
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
-          backgroundColor: "#90d4ed",
+          backgroundColor: "#fff",
+          borderBottomColor: "#cea146",
         },
         headerTitleStyle: {
-          fontWeight: "bold",
+          letterSpacing: "2px",
+          wordSpacing: "30px",
         },
       }}
     >
-
       <Screen
-        name="Home"
+        name='Home'
         component={Home}
         options={{ headerRight: () => <MyProfileBatton /> }}
         options={{ headerLeft: () => <SignOutButton /> }}
+        options={{ title: "Home" }}
       />
-
 
       <Screen
         name='TripList'
@@ -52,6 +53,7 @@ const RootNavigator = () => {
         // options={{ headerShown: true }}
         options={{ headerRight: () => <MyProfileBatton /> }}
         // options={{ headerLeft: () => <SignOutButton /> }}
+        options={{ title: "My Trips" }}
       />
 
       <Screen
@@ -69,13 +71,13 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name="MyTripsList"
+        name='MyTripsList'
         component={MyTripsList}
         options={{ headerShown: true }}
       />
 
       <Screen
-        name="MyTripsDetail"
+        name='MyTripsDetail'
         component={MyTripsDetail}
         options={{ headerShown: true }}
       />
@@ -114,6 +116,7 @@ const RootNavigator = () => {
         name='DiscoverList'
         component={DiscoverList}
         options={{ headerShown: false }}
+        options={{ title: "Discover" }}
       />
     </Navigator>
   );
