@@ -25,12 +25,6 @@ const DiscoverDetail = ({ route, navigation }) => {
       </Left>
 
       <DTripTitle>{trip.date}</DTripTitle>
-
-      <UpdateButtonStyled
-        onPress={() => navigation.navigate("EditTripForm", { oldTrip: trip })}
-      >
-        Update
-      </UpdateButtonStyled>
     </ListItem>
   );
 };

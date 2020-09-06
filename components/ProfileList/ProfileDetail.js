@@ -14,8 +14,11 @@ import defaultimage from "../../assets/defaultimage.png";
 import { BlackTitle } from "./styles";
 import DiscoverItem from "../DiscoverList/DiscoverItem";
 import { UpdateButtonStyled } from "../../styles";
+import { DeleteButtonStyled } from "./styles";
 import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
+import profileStore from "../../stores/ProfileStore";
+
 const ProfileDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
@@ -36,14 +39,21 @@ const ProfileDetail = ({ route, navigation }) => {
         />
         <BlackTitle>{profile.bio}</BlackTitle>
       </ListItem>
+      {profile.userId === authStore.user.id ? (
+        <>
+          <Button
+            onPress={() =>
+              navigation.navigate("EditProfileForm", { oldProfile: profile })
+            }
+          >
+            <Text> Edit Profile</Text>
+          </Button>
+          <Text> Total Trips: {profileTripList.length}</Text>
+        </>
+      ) : (
+        <Text> Total Trips: {profileTripList.length}</Text>
+      )}
 
-      <Button
-        onPress={() =>
-          navigation.navigate("EditProfileForm", { oldProfile: profile })
-        }
-      >
-        <Text> Edit Profile</Text>
-      </Button>
       <List>{profileTripList}</List>
     </Content>
   );
