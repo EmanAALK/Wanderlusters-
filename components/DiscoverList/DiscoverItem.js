@@ -2,9 +2,9 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styling
-import { ListItem, Left, Right } from "native-base";
-import { DTripTitle } from "./styles";
-
+import { ListItem, Left, Right, Text } from "native-base";
+import { DTripTitle, DeleteButtonStyled } from "./styles";
+import tripStore from "../../stores/TripStore";
 const DiscoverItem = ({ trip, navigation }) => {
   return (
     <ListItem
@@ -13,7 +13,11 @@ const DiscoverItem = ({ trip, navigation }) => {
       <Left>
         <DTripTitle>{trip.tripName}</DTripTitle>
       </Left>
-      <Right></Right>
+      <Right>
+        <DeleteButtonStyled onPress={() => tripStore.deleteTrip(tripId)}>
+          <Text>Delete</Text>
+        </DeleteButtonStyled>
+      </Right>
     </ListItem>
   );
 };

@@ -25,7 +25,7 @@ const CreateTripForm = ({ navigation }) => {
   const handleSubmit = async () => {
     console.log("check", trip.date);
     await tripStore.createTrip(trip);
-    navigation.replace("TripList");
+    navigation.replace("DiscoverList");
   };
 
   return (

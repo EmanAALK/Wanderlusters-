@@ -21,7 +21,7 @@ const EditTripForm = ({ navigation, route }) => {
 
   const handleSubmit = async () => {
     await tripStore.updateTrip(trip);
-    navigation.replace("TripList");
+    navigation.replace("DiscoverList");
   };
 
   return (

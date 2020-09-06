@@ -12,18 +12,19 @@ import {
 } from "native-base";
 import defaultimage from "../../assets/defaultimage.png";
 import { BlackTitle } from "./styles";
-import TripItem from "../TripList/TripItem";
-
+import DiscoverItem from "../DiscoverList/DiscoverItem";
+import { UpdateButtonStyled } from "../../styles";
 import tripStore from "../../stores/TripStore";
-
+import authStore from "../../stores/AuthStore";
 const ProfileDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
+
   const { profile } = route.params;
 
   const profileTripList = tripStore.trips
     .filter((trip) => trip.userId === profile.userId)
     .map((trip) => (
-      <TripItem trip={trip} key={trip.id} navigation={navigation} />
+      <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
     ));
 
   return (
@@ -35,13 +36,14 @@ const ProfileDetail = ({ route, navigation }) => {
         />
         <BlackTitle>{profile.bio}</BlackTitle>
       </ListItem>
-      <UpdateButtonStyled
+
+      <Button
         onPress={() =>
-          navigation.navigate("EditPtofileForm", { oldprofile: profile })
+          navigation.navigate("EditProfileForm", { oldProfile: profile })
         }
       >
-        Edit Profile
-      </UpdateButtonStyled>
+        <Text> Edit Profile</Text>
+      </Button>
       <List>{profileTripList}</List>
     </Content>
   );

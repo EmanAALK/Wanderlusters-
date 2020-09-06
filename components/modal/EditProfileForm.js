@@ -15,13 +15,12 @@ import {
 import profileStore from "../../stores/ProfileStore";
 
 const EditProfileForm = ({ navigation, route }) => {
-  const [profile, setProfile] = useState({
-    bio: "",
-    image: "",
-  });
+  const { oldProfile } = route.params;
+  const [profile, setProfile] = useState(oldProfile);
+
   const handleSubmit = async () => {
     await profileStore.updateProfile(profile);
-    navigation.replace("TripList");
+    navigation.goBack();
   };
 
   return (
@@ -29,15 +28,15 @@ const EditProfileForm = ({ navigation, route }) => {
       <AuthTitle>Edit Profile</AuthTitle>
       <AuthTextInput
         onChangeText={(bio) => setProfile({ ...profile, bio })}
-        placeholder="Bio"
-        // value={profile.bio}
-        placeholderTextColor="#A6AEC1"
+        placeholder={oldProfile.bio}
+        // value={oldProfile.bio}
+        placeholderTextColor="#000"
       />
       <AuthTextInput
         onChangeText={(image) => setProfile({ ...profile, image })}
-        placeholder="Profile Image"
-        // value={profile.image}
-        placeholderTextColor="#A6AEC1"
+        placeholder={oldProfile.image}
+        // value={oldProfile.image}
+        placeholderTextColor="#000"
       />
 
       <AuthButton onPress={handleSubmit}>

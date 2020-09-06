@@ -7,9 +7,10 @@ import DiscoverItem from "./DiscoverItem";
 
 //Stores
 import authStore from "../../stores/AuthStore";
-
-//Stores
 import tripStore from "../../stores/TripStore";
+
+//Styles
+import { AddButtonStyled, ButtonContainer } from "./styles";
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -23,6 +24,9 @@ const DiscoverList = ({ navigation }) => {
 
   return (
     <Content>
+      <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
+        Add Trip
+      </AddButtonStyled>
       <List>{discoverList}</List>
     </Content>
   );
