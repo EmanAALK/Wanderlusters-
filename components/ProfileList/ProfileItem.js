@@ -11,7 +11,6 @@ const ProfileItem = ({ profile, navigation }) => {
     <ListItem
       onPress={() => navigation.navigate("ProfileDetail", { profile: profile })}
     >
-      {/* <Text>{user.username}</Text> */}
       <Text>{profile.bio}</Text>
     </ListItem>
   );

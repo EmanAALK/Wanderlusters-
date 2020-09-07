@@ -15,6 +15,7 @@ import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 
 import MyProfileButton from "../buttons/MyProfileButton";
+
 import SignOutButton from "../buttons/SignOutButton";
 import DiscoverDetail from "../DiscoverList/DiscoverDetail";
 const { Navigator, Screen } = createStackNavigator();

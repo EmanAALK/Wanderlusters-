@@ -13,15 +13,12 @@ import {
 import defaultimage from "../../assets/defaultimage.png";
 import { BlackTitle } from "./styles";
 import DiscoverItem from "../DiscoverList/DiscoverItem";
-import { UpdateButtonStyled } from "../../styles";
-import { DeleteButtonStyled } from "./styles";
+
 import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
-import profileStore from "../../stores/ProfileStore";
 
 const ProfileDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
-
   const { profile } = route.params;
 
   const profileTripList = tripStore.trips
@@ -33,7 +30,8 @@ const ProfileDetail = ({ route, navigation }) => {
   return (
     <Content>
       <ListItem thumbnail>
-        {/* <BlackTitle>{user.username}</BlackTitle> */}
+        <BlackTitle>{profile.user.username}</BlackTitle>
+
         <Thumbnail
           source={profile.image ? { uri: profile.image } : defaultimage}
         />
@@ -53,7 +51,7 @@ const ProfileDetail = ({ route, navigation }) => {
       ) : (
         <Text> Total Trips: {profileTripList.length}</Text>
       )}
-
+      <Text> My Trips</Text>
       <List>{profileTripList}</List>
     </Content>
   );

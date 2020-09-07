@@ -42,7 +42,6 @@ export const ModalButtonText = styled.Text`
   font-size: 18px;
 `;
 
-
 export const DeleteButtonStyled = styled.Text`
   color: #3a160b;
   font-size: 12px;
@@ -69,5 +68,3 @@ export const SignOutButtonStyled = styled(Icon)`
 export const SignOuteTextStyled = styled(Text)`
   color: #000000;
 `;
-
-
