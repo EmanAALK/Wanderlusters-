@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import { ListItem, Left } from "native-base";
+import { ListItem, Left, Content } from "native-base";
 import { DTripTitle, UpdateButtonStyled } from "./styles";
 import profileStore from "../../stores/ProfileStore";
 const DiscoverDetail = ({ route, navigation }) => {
@@ -11,21 +11,23 @@ const DiscoverDetail = ({ route, navigation }) => {
     (profile) => profile.userId === trip.userId
   );
   return (
-    <ListItem>
-      <Left>
-        <DTripTitle
-          transparent
-          light
-          onPress={() =>
-            navigation.navigate("ProfileDetail", { profile: profile })
-          }
-        >
-          {trip.tripName}
-        </DTripTitle>
-      </Left>
+    <Content style={{ backgroundColor: "white", marginTop: 20 }}>
+      <ListItem>
+        <Left>
+          <DTripTitle
+            transparent
+            light
+            onPress={() =>
+              navigation.navigate("ProfileDetail", { profile: profile })
+            }
+          >
+            {trip.tripName}
+          </DTripTitle>
+        </Left>
 
-      <DTripTitle>{trip.date}</DTripTitle>
-    </ListItem>
+        <DTripTitle>{trip.date}</DTripTitle>
+      </ListItem>
+    </Content>
   );
 };
 

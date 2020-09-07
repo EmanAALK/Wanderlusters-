@@ -1,26 +1,11 @@
 //Color Palate
 // #3a160b Brown
 // #cea146 Orangish Gold
+// #f7f7f7 Gray
 
 
-function LogoTitle() {
-  return (
-    <Image
-      style={{ width: 50, height: 50 }}
-      source={require('@expo/snack-static/react-native-logo.png')}
-    />
-  );
-}
+//Shading:
+  /* box-shadow: 5px 10px 8px 10px #888888; */
 
-function StackScreen() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ headerTitle: props => <LogoTitle {...props} /> }}
-      />
-    </Stack.Navigator>
-  );
 
   https://reactnavigation.org/docs/headers/
