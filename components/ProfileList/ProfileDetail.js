@@ -15,20 +15,24 @@ import {
   Content,
   Thumbnail,
 } from "native-base";
+
+import defaultimage from "../../assets/defaultimage.png";
+import { BlackTitle } from "./styles";
+import DiscoverItem from "../DiscoverList/DiscoverItem";
+
+
 import { UpdateButtonStyled } from "../../styles";
 import { DeleteButtonStyled } from "./styles";
 import { BlackTitle, TotalTrips } from "./styles";
 
-import defaultimage from "../../assets/defaultimage.png";
 
 //Stores
+
 import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
-import profileStore from "../../stores/ProfileStore";
 
 const ProfileDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
-
   const { profile } = route.params;
 
   const profileTripList = tripStore.trips
@@ -40,7 +44,8 @@ const ProfileDetail = ({ route, navigation }) => {
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <ListItem thumbnail>
-        {/* <BlackTitle>{user.username}</BlackTitle> */}
+        <BlackTitle>{profile.user.username}</BlackTitle>
+
         <Thumbnail
           style={{ marginBottom: 5, marginRight: 16 }}
           source={profile.image ? { uri: profile.image } : defaultimage}
@@ -61,6 +66,9 @@ const ProfileDetail = ({ route, navigation }) => {
       ) : (
         <TotalTrips> Total Trips: {profileTripList.length}</TotalTrips>
       )}
+
+      <Text> My Trips</Text>
+
       <List>{profileTripList}</List>
     </Content>
   );

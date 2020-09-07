@@ -2,8 +2,10 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import { ListItem, Left, Content } from "native-base";
+
+import { ListItem, Left, List, Text } from "native-base";
 import { DTripTitle, UpdateButtonStyled } from "./styles";
+
 import profileStore from "../../stores/ProfileStore";
 const DiscoverDetail = ({ route, navigation }) => {
   const { trip } = route.params;
@@ -11,6 +13,7 @@ const DiscoverDetail = ({ route, navigation }) => {
     (profile) => profile.userId === trip.userId
   );
   return (
+
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <ListItem>
         <Left>
@@ -20,14 +23,15 @@ const DiscoverDetail = ({ route, navigation }) => {
             onPress={() =>
               navigation.navigate("ProfileDetail", { profile: profile })
             }
-          >
-            {trip.tripName}
-          </DTripTitle>
+          > {trip.user.username}
+          </DTripTitle>  
+<DTripTitle> {trip.tripName} </DTripTitle>
         </Left>
 
         <DTripTitle>{trip.date}</DTripTitle>
       </ListItem>
     </Content>
+
   );
 };
 

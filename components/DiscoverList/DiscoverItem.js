@@ -2,11 +2,11 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styling
-import { ListItem, Left, Right, Text, Image, View } from "native-base";
+import { ListItem, Left, Right, Text, Image, View, Button } from "native-base";
 import { DTripTitle, DeleteButtonStyled, UpdateButtonStyled } from "./styles";
 import tripStore from "../../stores/TripStore";
-import profileStore from "../../stores/ProfileStore";
 import authStore from "../../stores/AuthStore";
+
 const DiscoverItem = ({ trip, navigation }) => {
   return (
     <ListItem
@@ -19,7 +19,7 @@ const DiscoverItem = ({ trip, navigation }) => {
           </Left>
           <Right>
             <DeleteButtonStyled onPress={() => tripStore.deleteTrip(trip.id)}>
-              <Text>Delete</Text>
+              Delete
             </DeleteButtonStyled>
             <UpdateButtonStyled
               onPress={() =>

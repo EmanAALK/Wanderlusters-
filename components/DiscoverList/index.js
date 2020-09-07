@@ -12,13 +12,18 @@ import authStore from "../../stores/AuthStore";
 import tripStore from "../../stores/TripStore";
 
 //Styles
+
+
 import { AddButtonStyled, Container } from "./styles";
 import { Content, Spinner, List, Text, Image } from "native-base";
+
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
-  //For Later consideration when signing out: "an error Id of null cannot be shown because it's going, search for the user that has been turn to null"
+  //For Later consideration when signing out: "an error Id of null cannot be shown because it's going,
+  //search for the user that has been turn to null"
+
   const discoverList = tripStore.trips
     .filter((trip) => authStore.user.id !== trip.userId)
     .map((trip) => (
