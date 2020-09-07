@@ -17,7 +17,7 @@ const ProfileList = ({ navigation }) => {
   ));
 
   return (
-    <Content>
+    <Content style={{ backgroundColor: "white" }}>
       <List>{profileList}</List>
     </Content>
   );

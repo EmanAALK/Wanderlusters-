@@ -22,6 +22,7 @@ export const BlackTitle = styled.Text`
   color: black;
   font-size: 20;
   text-align: center;
+  margin-top: 0;
 `;
 export const OverLayContainer = styled.View`
   flex: 1;
@@ -93,4 +94,15 @@ export const ModalButtonText = styled.Text`
 export const DeleteButtonStyled = styled.Text`
   color: #3a160b;
   font-size: 12px;
+`;
+
+export const TotalTrips = styled.Text`
+  color: #cea146;
+  font-size: 15px;
+  margin-left: 28;
+  text-align: center;
+`;
+
+export const ProfileTripsStyled = styled.View`
+  margin-top: 10;
 `;

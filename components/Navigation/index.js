@@ -1,6 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Image } from "react-native";
 
 //Components
 import Home from "../Home";
@@ -10,6 +11,8 @@ import ProfileDetail from "../ProfileList/ProfileDetail";
 import ProfileList from "../ProfileList";
 import CreateTripForm from "../modal/CreateTripForm";
 import EditProfileForm from "../modal/EditProfileForm";
+import splash from "../../assets/splash.png";
+
 //Stores
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
@@ -23,12 +26,15 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Signin"
+      initialRouteName='Signin'
       screenOptions={{
-        headerTintColor: "white",
+        headerTintColor: "#cea146",
+        headerBackAllowFontScaling: "5",
         headerStyle: {
           backgroundColor: "#fff",
-          borderBottomColor: "#cea146",
+          borderBottomColor: "#f7f7f7",
+          borderBottomWidth: "0.5",
+          marginBottom: "40",
         },
         headerTitleStyle: {
           letterSpacing: "2px",
@@ -37,7 +43,7 @@ const RootNavigator = () => {
       }}
     >
       <Screen
-        name="Home"
+        name='Home'
         component={Home}
         options={{ headerRight: () => <MyProfileButton /> }}
         options={{ headerLeft: () => <SignOutButton /> }}
@@ -45,60 +51,96 @@ const RootNavigator = () => {
       />
 
       <Screen
-        name="EditTripForm"
+        name='EditTripForm'
         component={EditTripForm}
         options={{ headerShown: true }}
       />
       <Screen
-        name="EditProfileForm"
+        name='EditProfileForm'
         component={EditProfileForm}
         options={{ headerShown: true }}
       />
 
       <Screen
-        name="CreateTripForm"
+        name='CreateTripForm'
         component={CreateTripForm}
         options={{ headerShown: true }}
       />
       <Screen
-        name="Signin"
+        name='Signin'
         component={Signin}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name="Signup"
+        name='Signup'
         component={Signup}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name="ProfileList"
+        name='ProfileList'
         component={ProfileList}
         // options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
+        options={{
+          headerTitle: () => (
+            <Image
+              source={splash}
+              alt='Logo'
+              style={{ width: 65, height: 65, paddingBottom: 10 }}
+            />
+          ),
+        }}
       />
 
       <Screen
-        name="ProfileDetail"
+        name='ProfileDetail'
         component={ProfileDetail}
         options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
+        options={{
+          headerTitle: () => (
+            <Image
+              source={splash}
+              alt='Logo'
+              style={{ width: 65, height: 65, paddingBottom: 10 }}
+            />
+          ),
+        }}
       />
 
       <Screen
-        name="DiscoverList"
+        name='DiscoverList'
         component={DiscoverList}
         options={{ headerShown: true }}
         options={{ title: "Discover" }}
         options={{ headerRight: () => <MyProfileButton /> }}
         // options={{ headerLeft: () => <SignOutButton /> }}
+        options={{
+          headerTitle: () => (
+            <Image
+              source={splash}
+              alt='Logo'
+              style={{ width: 65, height: 65, paddingBottom: 10 }}
+            />
+          ),
+        }}
       />
       <Screen
-        name="DiscoverDetail"
+        name='DiscoverDetail'
         component={DiscoverDetail}
         options={{ headerShown: false }}
         options={{ title: "Discover" }}
+        options={{
+          headerTitle: () => (
+            <Image
+              source={splash}
+              alt='Logo'
+              style={{ width: 65, height: 65, paddingBottom: 10 }}
+            />
+          ),
+        }}
       />
     </Navigator>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import DatePicker from "react-native-datepicker";
+import { ImagePicker } from "expo-image-picker";
 
 //Styles
 import {
@@ -10,6 +11,7 @@ import {
   ModalButtonText,
   ModalButton,
 } from "../../styles";
+import { ListItem, Left, Image, View, Button, Text } from "native-base";
 
 //Stores
 import tripStore from "../../stores/TripStore";
@@ -28,31 +30,66 @@ const CreateTripForm = ({ navigation }) => {
     navigation.replace("DiscoverList");
   };
 
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    try {
+      if (Platform.OS !== "web") {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+        if (status !== "granted") {
+          alert("Sorry, we need camera roll permissions to make this work!");
+        }
+      }
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      if (!result.cancelled) {
+        setImage(result.uri);
+      }
+
+      console.log(result);
+    } catch (E) {
+      console.log(E);
+    }
+  };
+
   return (
     <ModalContainer>
-      <ModalTitle>Add Trip</ModalTitle>
+      <ModalTitle>Add Your Trip</ModalTitle>
       <ModalTextInput
         onChangeText={(tripName) => setTrip({ ...trip, tripName })}
-        placeholder="Trip Name"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Trip Name'
+        placeholderTextColor='#A6AEC1'
+      />
+
+      <ModalTextInput
+        // event handler is repeated
+        onChangeText={(description) => setTrip({ ...trip, description })}
+        placeholder='Description'
+        placeholderTextColor='#A6AEC1'
       />
 
       <DatePicker
-        style={{ width: 200 }}
+        style={{ width: 255 }}
         date={trip.date}
-        mode="date"
-        placeholder="select date"
-        format="YYYY-MM-DD"
+        mode='date'
+        placeholder='select date'
+        format='YYYY-MM-DD'
         // minDate="2016-05-01"
         // maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
+        confirmBtnText='Confirm'
+        cancelBtnText='Cancel'
         customStyles={{
           dateIcon: {
             position: "absolute",
             left: 0,
             top: 4,
+            marginRight: 4,
             marginLeft: 0,
+            borderColor: "#cea146",
           },
           dateInput: {
             marginLeft: 36,
@@ -65,17 +102,25 @@ const CreateTripForm = ({ navigation }) => {
         }}
       />
 
-      <ModalTextInput
-        // event handler is repeated
-        onChangeText={(description) => setTrip({ ...trip, description })}
-        placeholder="Description"
-        placeholderTextColor="#A6AEC1"
-      />
       {/* <ModalTextInput
         onChangeText={(image) => setTrip({ ...trip, image })}
         placeholder="Image"
         placeholderTextColor="#A6AEC1"
       /> */}
+
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          color: "black",
+        }}
+      >
+        <Button title='Pick an image from camera roll' onPress={pickImage} />
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 30, height: 30 }} />
+        )}
+      </View>
 
       <ModalButton onPress={handleSubmit}>
         <ModalButtonText>Save Changes</ModalButtonText>

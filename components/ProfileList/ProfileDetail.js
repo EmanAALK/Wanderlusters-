@@ -1,5 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react";
+
+//Components
+import DiscoverItem from "../DiscoverList/DiscoverItem";
+
+//Styles
 import {
   ListItem,
   Right,
@@ -10,9 +15,18 @@ import {
   Content,
   Thumbnail,
 } from "native-base";
+
 import defaultimage from "../../assets/defaultimage.png";
 import { BlackTitle } from "./styles";
 import DiscoverItem from "../DiscoverList/DiscoverItem";
+
+
+import { UpdateButtonStyled } from "../../styles";
+import { DeleteButtonStyled } from "./styles";
+import { BlackTitle, TotalTrips } from "./styles";
+
+
+//Stores
 
 import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
@@ -28,11 +42,12 @@ const ProfileDetail = ({ route, navigation }) => {
     ));
 
   return (
-    <Content>
+    <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <ListItem thumbnail>
         <BlackTitle>{profile.user.username}</BlackTitle>
 
         <Thumbnail
+          style={{ marginBottom: 5, marginRight: 16 }}
           source={profile.image ? { uri: profile.image } : defaultimage}
         />
         <BlackTitle>{profile.bio}</BlackTitle>
@@ -46,12 +61,14 @@ const ProfileDetail = ({ route, navigation }) => {
           >
             <Text> Edit Profile</Text>
           </Button>
-          <Text> Total Trips: {profileTripList.length}</Text>
+          <TotalTrips> Total Trips: {profileTripList.length}</TotalTrips>
         </>
       ) : (
-        <Text> Total Trips: {profileTripList.length}</Text>
+        <TotalTrips> Total Trips: {profileTripList.length}</TotalTrips>
       )}
+
       <Text> My Trips</Text>
+
       <List>{profileTripList}</List>
     </Content>
   );

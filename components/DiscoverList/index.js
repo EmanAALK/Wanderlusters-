@@ -1,16 +1,22 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Content, Spinner, List } from "native-base";
 
 //Components
 import DiscoverItem from "./DiscoverItem";
+
+//Media
+import airplain from "../../media/airplain.png";
 
 //Stores
 import authStore from "../../stores/AuthStore";
 import tripStore from "../../stores/TripStore";
 
 //Styles
-import { AddButtonStyled } from "./styles";
+
+
+import { AddButtonStyled, Container } from "./styles";
+import { Content, Spinner, List, Text, Image } from "native-base";
+
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -25,10 +31,13 @@ const DiscoverList = ({ navigation }) => {
     ));
 
   return (
-    <Content>
-      <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
-        Add Trip
-      </AddButtonStyled>
+    <Content style={{ backgroundColor: "white" }}>
+      <Container>
+        <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
+          <Text>+</Text>
+          {/* <Image source={{ airplain }} alt='Add' /> */}
+        </AddButtonStyled>
+      </Container>
       <List>{discoverList}</List>
     </Content>
   );
