@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import DatePicker from "react-native-datepicker";
-import { ImagePicker } from "expo-image-picker";
+import { Button, Image, View, Platform } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import Constants from "expo-constants";
+import * as Permissions from "expo-permissions";
 
 //Styles
 import {
@@ -11,7 +14,6 @@ import {
   ModalButtonText,
   ModalButton,
 } from "../../styles";
-import { ListItem, Left, Image, View, Button, Text } from "native-base";
 
 //Stores
 import tripStore from "../../stores/TripStore";
@@ -34,6 +36,7 @@ const CreateTripForm = ({ navigation }) => {
 
   const pickImage = async () => {
     try {
+      console.log(pickImage);
       if (Platform.OS !== "web") {
         const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
         if (status !== "granted") {
@@ -118,7 +121,7 @@ const CreateTripForm = ({ navigation }) => {
       >
         <Button title='Pick an image from camera roll' onPress={pickImage} />
         {image && (
-          <Image source={{ uri: image }} style={{ width: 30, height: 30 }} />
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
         )}
       </View>
 

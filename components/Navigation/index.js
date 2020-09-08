@@ -17,10 +17,12 @@ import splash from "../../assets/splash.png";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 
+//Buttons
 import MyProfileButton from "../buttons/MyProfileButton";
 
 import SignOutButton from "../buttons/SignOutButton";
 import DiscoverDetail from "../DiscoverList/DiscoverDetail";
+
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
@@ -29,7 +31,6 @@ const RootNavigator = () => {
       initialRouteName='Signin'
       screenOptions={{
         headerTintColor: "#cea146",
-        headerBackAllowFontScaling: "5",
         headerStyle: {
           backgroundColor: "#fff",
           borderBottomColor: "#f7f7f7",
@@ -42,14 +43,6 @@ const RootNavigator = () => {
         },
       }}
     >
-      <Screen
-        name='Home'
-        component={Home}
-        options={{ headerRight: () => <MyProfileButton /> }}
-        options={{ headerLeft: () => <SignOutButton /> }}
-        options={{ title: "Home" }}
-      />
-
       <Screen
         name='EditTripForm'
         component={EditTripForm}
@@ -83,6 +76,7 @@ const RootNavigator = () => {
         component={ProfileList}
         // options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
+        options={{ headerRight: () => <MyProfileButton /> }}
         options={{
           headerTitle: () => (
             <Image
@@ -99,6 +93,7 @@ const RootNavigator = () => {
         component={ProfileDetail}
         options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
+        options={{ headerRight: () => <MyProfileButton /> }}
         options={{
           headerTitle: () => (
             <Image
@@ -114,10 +109,8 @@ const RootNavigator = () => {
         name='DiscoverList'
         component={DiscoverList}
         options={{ headerShown: true }}
-        options={{ title: "Discover" }}
-        options={{ headerRight: () => <MyProfileButton /> }}
-        // options={{ headerLeft: () => <SignOutButton /> }}
         options={{
+          headerRight: () => <MyProfileButton />,
           headerTitle: () => (
             <Image
               source={splash}
@@ -130,9 +123,9 @@ const RootNavigator = () => {
       <Screen
         name='DiscoverDetail'
         component={DiscoverDetail}
-        options={{ headerShown: false }}
-        options={{ title: "Discover" }}
+        options={{ headerShown: true }}
         options={{
+          headerRight: () => <MyProfileButton />,
           headerTitle: () => (
             <Image
               source={splash}

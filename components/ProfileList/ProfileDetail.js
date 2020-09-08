@@ -50,6 +50,7 @@ const ProfileDetail = ({ route, navigation }) => {
           style={{ marginBottom: 5, marginRight: 16 }}
           source={profile.image ? { uri: profile.image } : defaultimage}
         />
+        <BlackTitle>{profile.user.firstName}</BlackTitle>
         <BlackTitle>{profile.bio}</BlackTitle>
       </ListItem>
       {profile.userId === authStore.user.id ? (
