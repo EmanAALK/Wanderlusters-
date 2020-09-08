@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import DatePicker from "react-native-datepicker";
-import moment from "moment";
+
+//Stores
+import tripStore from "../../stores/TripStore";
+
 //Styles
 import {
   ModalContainer,
@@ -10,9 +13,6 @@ import {
   ModalButtonText,
   ModalButton,
 } from "../../styles";
-
-//Stores
-import tripStore from "../../stores/TripStore";
 
 const EditTripForm = ({ navigation, route }) => {
   const { oldTrip } = route.params;
@@ -39,8 +39,6 @@ const EditTripForm = ({ navigation, route }) => {
         mode="date"
         placeholder="select date"
         format="YYYY-MM-DD"
-        // minDate="2016-05-01"
-        // maxDate="2016-06-01"
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
         customStyles={{
@@ -53,14 +51,12 @@ const EditTripForm = ({ navigation, route }) => {
           dateInput: {
             marginLeft: 36,
           },
-          // ... You can check the source to find the other keys.
         }}
         onDateChange={(date) => {
           return setTrip({ ...trip, date });
         }}
       />
       <ModalTextInput
-        // event handler is repeated
         onChangeText={(description) => setTrip({ ...trip, description })}
         placeholder="Description"
         value={trip.description}

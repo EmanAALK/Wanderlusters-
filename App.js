@@ -1,11 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-
-// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import RootNavigator from "./components/Navigation/";
-// import TabNavigator from "./components/Navigation/TapNavigation";
-
-//Styles
 import { ThemeProvider } from "styled-components";
 
 const theme = {
@@ -29,9 +24,6 @@ export default function App() {
       <NavigationContainer>
         <RootNavigator />
       </NavigationContainer>
-      {/* <NavigationContainer>
-        <TabNavigator />
-      </NavigationContainer> */}
     </ThemeProvider>
   );
 }

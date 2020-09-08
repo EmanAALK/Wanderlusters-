@@ -4,9 +4,6 @@ import { observer } from "mobx-react";
 //Components
 import DiscoverItem from "./DiscoverItem";
 
-//Media
-import airplain from "../../media/airplain.png";
-
 //Stores
 import authStore from "../../stores/AuthStore";
 import tripStore from "../../stores/TripStore";
@@ -14,7 +11,7 @@ import tripStore from "../../stores/TripStore";
 //Styles
 
 import { Container, ADDButtonStyled } from "./styles";
-import { Content, Spinner, List, Text, Image, Button } from "native-base";
+import { Content, Spinner, List, Text } from "native-base";
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -31,7 +28,6 @@ const DiscoverList = ({ navigation }) => {
       <Container>
         <Text onPress={() => navigation.navigate("CreateTripForm")}>
           <ADDButtonStyled type="Entypo" name="aircraft-take-off" />
-          {/* <Image source={{ airplain }} alt='Add' /> */}
         </Text>
       </Container>
       <List>{discoverList}</List>

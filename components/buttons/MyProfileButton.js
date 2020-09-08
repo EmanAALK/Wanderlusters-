@@ -1,22 +1,22 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { observer } from "mobx-react";
-
-import { MyProfileButtonStyled, MyProfileTextStyled } from "../../styles";
 import { useNavigation } from "@react-navigation/native";
-import { Button, ListItem, Text, View } from "native-base";
+import { Button, Text } from "native-base";
+
 import profileStore from "../../stores/ProfileStore";
 import authStore from "../../stores/AuthStore";
 
+import { MyProfileButtonStyled } from "../../styles";
+
 const MyProfileButton = () => {
   const navigation = useNavigation();
+
   if (!authStore.user) return <Text></Text>;
 
   const profile = profileStore.profiles.find(
     (profile) => profile.userId === authStore.user.id
   );
-  console.log("profile", profile);
-  console.log("user", authStore.user);
-  console.log("userId", authStore.user.id);
+
   return (
     <Button
       transparent

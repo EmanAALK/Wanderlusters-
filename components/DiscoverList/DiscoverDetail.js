@@ -1,26 +1,19 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { Left, Content, List, View, Thumbnail } from "native-base";
+
+import profileStore from "../../stores/ProfileStore";
 
 //Styles
-
-import {
-  ListItem,
-  Left,
-  Content,
-  List,
-  View,
-  Thumbnail,
-  Image,
-} from "native-base";
 import { DTripTitle, DTripTitle2 } from "./styles";
 import defaultTrip from "../../assets/defaultTrip.png";
-import profileStore from "../../stores/ProfileStore";
+
 const DiscoverDetail = ({ route, navigation }) => {
   const { trip } = route.params;
   const profile = profileStore.profiles.find(
     (profile) => profile.userId === trip.userId
   );
-  console.log(trip);
+
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <List>
@@ -32,7 +25,6 @@ const DiscoverDetail = ({ route, navigation }) => {
               navigation.navigate("ProfileDetail", { profile: profile })
             }
           >
-            {" "}
             <DTripTitle2>username: </DTripTitle2>
             {trip.user.username}
           </DTripTitle>
@@ -47,7 +39,7 @@ const DiscoverDetail = ({ route, navigation }) => {
         </Left>
         <Left>
           <DTripTitle2>Trip Image: </DTripTitle2>
-          {/* <View>{trip.image}</View> */}
+
           <View>
             <Thumbnail
               style={{ marginBottom: 1, marginRight: 1 }}

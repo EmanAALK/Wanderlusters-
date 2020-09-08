@@ -1,14 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
-
-//Components
-import DiscoverItem from "../DiscoverList/DiscoverItem";
-
-//Styles
 import {
   ListItem,
-  Right,
-  Left,
   List,
   Text,
   Button,
@@ -17,14 +10,16 @@ import {
   Spinner,
 } from "native-base";
 
-import defaultimage from "../../assets/defaultimage.png";
-
-import { BlackTitle, TotalTrips, DTripTitle } from "./styles";
+//Components
+import DiscoverItem from "../DiscoverList/DiscoverItem";
 
 //Stores
-
 import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
+
+//Styles
+import { BlackTitle, TotalTrips, DTripTitle } from "./styles";
+import defaultimage from "../../assets/defaultimage.png";
 
 const ProfileDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -49,7 +44,6 @@ const ProfileDetail = ({ route, navigation }) => {
     .map((trip) => (
       <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
     ));
-  console.log("check favorite value", favoriteTripList);
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <ListItem thumbnail>

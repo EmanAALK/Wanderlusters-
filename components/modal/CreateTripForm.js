@@ -3,8 +3,10 @@ import { observer } from "mobx-react";
 import DatePicker from "react-native-datepicker";
 import { Button, Image, View, Platform } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
+
+//Stores
+import tripStore from "../../stores/TripStore";
 
 //Styles
 import {
@@ -14,9 +16,6 @@ import {
   ModalButtonText,
   ModalButton,
 } from "../../styles";
-
-//Stores
-import tripStore from "../../stores/TripStore";
 
 const CreateTripForm = ({ navigation }) => {
   const [trip, setTrip] = useState({
@@ -45,7 +44,6 @@ const CreateTripForm = ({ navigation }) => {
 
   const pickImage = async () => {
     try {
-      console.log(pickImage);
       if (Platform.OS !== "web") {
         const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
         if (status !== "granted") {
@@ -61,11 +59,7 @@ const CreateTripForm = ({ navigation }) => {
       if (!result.cancelled) {
         setImage(result.uri);
       }
-
-      console.log(result);
-    } catch (E) {
-      console.log(E);
-    }
+    } catch (E) {}
   };
 
   return (
@@ -78,7 +72,6 @@ const CreateTripForm = ({ navigation }) => {
       />
 
       <ModalTextInput
-        // event handler is repeated
         onChangeText={(description) => setTrip({ ...trip, description })}
         placeholder="Description"
         placeholderTextColor="#A6AEC1"
@@ -90,8 +83,6 @@ const CreateTripForm = ({ navigation }) => {
         mode="date"
         placeholder="select date"
         format="YYYY-MM-DD"
-        // minDate="2016-05-01"
-        // maxDate="2016-06-01"
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
         customStyles={{
@@ -106,19 +97,11 @@ const CreateTripForm = ({ navigation }) => {
           dateInput: {
             marginLeft: 36,
           },
-          // ... You can check the source to find the other keys.
         }}
         onDateChange={(date) => {
-          console.log("date", date);
           return setTrip({ ...trip, date });
         }}
       />
-
-      {/* <ModalTextInput
-        onChangeText={(image) => setTrip({ ...trip, image })}
-        placeholder="Image"
-        placeholderTextColor="#A6AEC1"
-      /> */}
 
       <View
         style={{

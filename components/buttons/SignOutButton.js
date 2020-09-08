@@ -1,9 +1,10 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { SignOutButtonStyled } from "../../styles";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "native-base";
+
 import authStore from "../../stores/AuthStore";
+import { SignOutButtonStyled } from "../../styles";
 
 const SignOutButton = () => {
   const navigation = useNavigation();

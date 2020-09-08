@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Title = styled.Text`
   color: #cea146;
-  font-size: 20;
+  font-size: 20px;
   margin-bottom: 80px;
   text-align: left;
 `;
@@ -20,7 +20,7 @@ export const AuthContainer = styled.View`
 export const AuthTitle = styled.Text`
   color: #cea146;
   font-weight: bold;
-  font-size: 20;
+  font-size: 20px;
   margin-bottom: 20px;
   border-bottom-color: #000000;
 `;
