@@ -5,7 +5,7 @@ import { Button } from "native-base";
 
 import MyProfileButtonStyled from "../../styles";
 
-const GoToDiscoverListButton = () => {
+const GoToDiscoverList = () => {
   const navigation = useNavigation();
 
   return (
@@ -19,4 +19,4 @@ const GoToDiscoverListButton = () => {
   );
 };
 
-export default observer(GoToDiscoverListButton);
+export default observer(GoToDiscoverList);
