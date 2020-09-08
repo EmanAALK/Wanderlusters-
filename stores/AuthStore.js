@@ -1,5 +1,5 @@
-import instance from "./instance";
 import AsyncStorage from "@react-native-community/async-storage";
+import instance from "./instance";
 
 // Mobx
 import { decorate, observable } from "mobx";
