@@ -43,9 +43,6 @@ const DiscoverItem = ({ trip, navigation }) => {
           <Left>
             <DTripTitle>{trip.tripName}</DTripTitle>
           </Left>
-          <Right>
-            <Text>{trip.image}</Text>
-          </Right>
         </>
       )}
     </ListItem>

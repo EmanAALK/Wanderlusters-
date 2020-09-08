@@ -17,13 +17,11 @@ import splash from "../../assets/splash.png";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 
-//Buttons
 import MyProfileButton from "../buttons/MyProfileButton";
 import GoToDiscoverList from "../buttons/GoToDiscoverList";
 
 import SignOutButton from "../buttons/SignOutButton";
 import DiscoverDetail from "../DiscoverList/DiscoverDetail";
-
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
@@ -32,6 +30,7 @@ const RootNavigator = () => {
       initialRouteName="Signin"
       screenOptions={{
         headerTintColor: "#cea146",
+        headerBackAllowFontScaling: "5",
         headerStyle: {
           backgroundColor: "#fff",
           borderBottomColor: "#f7f7f7",
@@ -45,7 +44,6 @@ const RootNavigator = () => {
       }}
     >
       <Screen
-
         name="Home"
         component={Home}
         options={{ headerRight: () => <MyProfileButton /> }}
@@ -53,9 +51,7 @@ const RootNavigator = () => {
         options={{ title: "Home" }}
       />
       <Screen
-
-        name='EditTripForm'
-
+        name="EditTripForm"
         component={EditTripForm}
         options={{ headerShown: true }}
       />
@@ -88,7 +84,6 @@ const RootNavigator = () => {
         component={ProfileList}
         // options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
-        options={{ headerRight: () => <MyProfileButton /> }}
         options={{
           headerTitle: () => (
             <Image
@@ -100,7 +95,6 @@ const RootNavigator = () => {
         }}
       />
       {/* changed ProfileDetail to show icon */}
-   
       <Screen
         name="ProfileDetail"
         component={ProfileDetail}
@@ -125,14 +119,13 @@ const RootNavigator = () => {
          }}
        /> */}
 
-       {/* changed DiscoverList to show icon */}
+      {/* changed DiscoverList to show icon */}
       <Screen
         name="DiscoverList"
         component={DiscoverList}
         options={{ headerShown: true }}
         options={{ title: "Discover" }}
         options={{ headerRight: () => <MyProfileButton /> }}
-      />
       />
       {/* <Screen
          name="DiscoverList"
@@ -152,7 +145,7 @@ const RootNavigator = () => {
            ),
          }}
        /> */}
-       <Screen
+      <Screen
         name="DiscoverDetail"
         component={DiscoverDetail}
         options={{ headerShown: true }}
@@ -167,10 +160,6 @@ const RootNavigator = () => {
         //       />
         //     ),
         //   }}
-      />
-          ),
-        }}
-
       />
     </Navigator>
   );
