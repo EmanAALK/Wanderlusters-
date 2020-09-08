@@ -17,14 +17,8 @@ import {
 } from "native-base";
 
 import defaultimage from "../../assets/defaultimage.png";
-import { BlackTitle } from "./styles";
-import DiscoverItem from "../DiscoverList/DiscoverItem";
 
-
-import { UpdateButtonStyled } from "../../styles";
-import { DeleteButtonStyled } from "./styles";
-import { BlackTitle, TotalTrips } from "./styles";
-
+import { BlackTitle, TotalTrips, DTripTitle } from "./styles";
 
 //Stores
 
@@ -40,7 +34,13 @@ const ProfileDetail = ({ route, navigation }) => {
     .map((trip) => (
       <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
     ));
-
+  const favoriteTripList = tripStore.trips
+    .filter((trip) => trip.userId === profile.userId)
+    .filter((trip) => trip.favorite == true)
+    .map((trip) => (
+      <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
+    ));
+  console.log("check favorite value", favoriteTripList);
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <ListItem thumbnail>
@@ -52,6 +52,7 @@ const ProfileDetail = ({ route, navigation }) => {
         />
         <BlackTitle>{profile.bio}</BlackTitle>
       </ListItem>
+
       {profile.userId === authStore.user.id ? (
         <>
           <Button
@@ -61,15 +62,19 @@ const ProfileDetail = ({ route, navigation }) => {
           >
             <Text> Edit Profile</Text>
           </Button>
+
           <TotalTrips> Total Trips: {profileTripList.length}</TotalTrips>
         </>
       ) : (
         <TotalTrips> Total Trips: {profileTripList.length}</TotalTrips>
       )}
 
-      <Text> My Trips</Text>
+      <DTripTitle> My Trips</DTripTitle>
 
       <List>{profileTripList}</List>
+      <DTripTitle> My favorite Trips</DTripTitle>
+
+      <List>{favoriteTripList}</List>
     </Content>
   );
 };

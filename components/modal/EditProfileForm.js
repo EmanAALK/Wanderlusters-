@@ -28,15 +28,13 @@ const EditProfileForm = ({ navigation, route }) => {
       <AuthTitle>Edit Profile</AuthTitle>
       <AuthTextInput
         onChangeText={(bio) => setProfile({ ...profile, bio })}
-        placeholder={oldProfile.bio}
-        // value={oldProfile.bio}
-        placeholderTextColor="#000"
+        placeholder="Bio"
+        placeholderTextColor="#A6AEC1"
       />
       <AuthTextInput
         onChangeText={(image) => setProfile({ ...profile, image })}
-        placeholder={oldProfile.image}
-        // value={oldProfile.image}
-        placeholderTextColor="#000"
+        placeholder="image"
+        placeholderTextColor="#A6AEC1"
       />
 
       <AuthButton onPress={handleSubmit}>

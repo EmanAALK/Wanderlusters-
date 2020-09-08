@@ -13,10 +13,8 @@ import tripStore from "../../stores/TripStore";
 
 //Styles
 
-
-import { AddButtonStyled, Container } from "./styles";
-import { Content, Spinner, List, Text, Image } from "native-base";
-
+import { Container, ADDButtonStyled } from "./styles";
+import { Content, Spinner, List, Text, Image, Button } from "native-base";
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -33,10 +31,10 @@ const DiscoverList = ({ navigation }) => {
   return (
     <Content style={{ backgroundColor: "white" }}>
       <Container>
-        <AddButtonStyled onPress={() => navigation.navigate("CreateTripForm")}>
-          <Text>+</Text>
+        <Text onPress={() => navigation.navigate("CreateTripForm")}>
+          <ADDButtonStyled type="Octicons" name="diff-added" />
           {/* <Image source={{ airplain }} alt='Add' /> */}
-        </AddButtonStyled>
+        </Text>
       </Container>
       <List>{discoverList}</List>
     </Content>
