@@ -14,6 +14,7 @@ import {
   Button,
   Content,
   Thumbnail,
+  Spinner,
 } from "native-base";
 
 import defaultimage from "../../assets/defaultimage.png";
@@ -27,6 +28,7 @@ import authStore from "../../stores/AuthStore";
 
 const ProfileDetail = ({ route, navigation }) => {
   if (tripStore.loading) return <Spinner />;
+  if (!authStore.user) return <Spinner />;
   const { profile } = route.params;
 
   const profileTripList = tripStore.trips

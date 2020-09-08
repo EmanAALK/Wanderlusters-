@@ -18,7 +18,7 @@ import { Content, Spinner, List, Text, Image, Button } from "native-base";
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
-  const loggedInUser = authStore.user;
+  if (!authStore.user) return <Spinner />;
 
   //For Later consideration when signing out: "an error Id of null cannot be shown because it's going,
   //search for the user that has been turn to null"
