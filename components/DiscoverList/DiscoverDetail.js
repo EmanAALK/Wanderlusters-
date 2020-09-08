@@ -3,8 +3,8 @@ import { observer } from "mobx-react";
 
 //Styles
 
-import { ListItem, Left, List, Text } from "native-base";
-import { DTripTitle, UpdateButtonStyled } from "./styles";
+import { ListItem, Left, Content, List } from "native-base";
+import { DTripTitle, DTripTitle2 } from "./styles";
 
 import profileStore from "../../stores/ProfileStore";
 const DiscoverDetail = ({ route, navigation }) => {
@@ -13,9 +13,8 @@ const DiscoverDetail = ({ route, navigation }) => {
     (profile) => profile.userId === trip.userId
   );
   return (
-
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
-      <ListItem>
+      <List>
         <Left>
           <DTripTitle
             transparent
@@ -23,15 +22,26 @@ const DiscoverDetail = ({ route, navigation }) => {
             onPress={() =>
               navigation.navigate("ProfileDetail", { profile: profile })
             }
-          > {trip.user.username}
-          </DTripTitle>  
-<DTripTitle> {trip.tripName} </DTripTitle>
+          >
+            {" "}
+            <DTripTitle2>username: </DTripTitle2>
+            {trip.user.username}
+          </DTripTitle>
         </Left>
-
-        <DTripTitle>{trip.date}</DTripTitle>
-      </ListItem>
+        <Left>
+          <DTripTitle2>Trip Name: </DTripTitle2>
+          <DTripTitle> {trip.tripName} </DTripTitle>
+        </Left>
+        <Left>
+          <DTripTitle2>Trip Date: </DTripTitle2>
+          <DTripTitle>{trip.date}</DTripTitle>
+        </Left>
+        <Left>
+          <DTripTitle2>Trip Image: </DTripTitle2>
+          <DTripTitle>{trip.image}</DTripTitle>
+        </Left>
+      </List>
     </Content>
-
   );
 };
 

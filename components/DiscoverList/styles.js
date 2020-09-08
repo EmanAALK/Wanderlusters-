@@ -1,13 +1,25 @@
 import styled from "styled-components/native";
+import { Icon, Text } from "native-base";
 
 export const DTripTitle = styled.Text`
   color: #3a160b;
+
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-bottom-color: #000000;
+`;
+
+export const DTripTitle2 = styled.Text`
+  color: black;
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 20px;
   border-bottom-color: #000000;
 `;
-
+export const ADDButtonStyled = styled(Icon)`
+  color: #000000;
+  margin-right: 10px;
+`;
 export const Container = styled.View`
   flex: 1;
   align-self: stretch;

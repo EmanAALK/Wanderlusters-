@@ -12,6 +12,14 @@ export const TopStyling = styled.View`
   justify-content: center;
 `;
 
+export const DTripTitle = styled.Text`
+  color: #3a160b;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-bottom-color: #000000;
+`;
+
 export const Title = styled.Text`
   color: #fff;
   font-size: 38;

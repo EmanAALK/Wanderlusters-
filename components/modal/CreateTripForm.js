@@ -24,6 +24,7 @@ const CreateTripForm = ({ navigation }) => {
     date: "",
     description: "",
     image: "",
+    favorite: false,
   });
 
   const handleSubmit = async () => {
@@ -64,27 +65,27 @@ const CreateTripForm = ({ navigation }) => {
       <ModalTitle>Add Your Trip</ModalTitle>
       <ModalTextInput
         onChangeText={(tripName) => setTrip({ ...trip, tripName })}
-        placeholder='Trip Name'
-        placeholderTextColor='#A6AEC1'
+        placeholder="Trip Name"
+        placeholderTextColor="#A6AEC1"
       />
 
       <ModalTextInput
         // event handler is repeated
         onChangeText={(description) => setTrip({ ...trip, description })}
-        placeholder='Description'
-        placeholderTextColor='#A6AEC1'
+        placeholder="Description"
+        placeholderTextColor="#A6AEC1"
       />
 
       <DatePicker
         style={{ width: 255 }}
         date={trip.date}
-        mode='date'
-        placeholder='select date'
-        format='YYYY-MM-DD'
+        mode="date"
+        placeholder="select date"
+        format="YYYY-MM-DD"
         // minDate="2016-05-01"
         // maxDate="2016-06-01"
-        confirmBtnText='Confirm'
-        cancelBtnText='Cancel'
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
         customStyles={{
           dateIcon: {
             position: "absolute",
@@ -119,7 +120,7 @@ const CreateTripForm = ({ navigation }) => {
           color: "black",
         }}
       >
-        <Button title='Pick an image from camera roll' onPress={pickImage} />
+        <Button title="Pick an image from camera roll" onPress={pickImage} />
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
         )}

@@ -59,6 +59,11 @@ export const MyProfileButtonStyled = styled(Icon)`
   margin-right: 10px;
 `;
 
+export const FavortieButtonStyled = styled(Icon)`
+  color: #000000;
+  margin-right: 10px;
+`;
+
 export const MyProfileTextStyled = styled(Text)`
   color: #000000;
 `;

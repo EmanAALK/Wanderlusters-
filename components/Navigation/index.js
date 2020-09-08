@@ -19,6 +19,7 @@ import Signup from "../authentication/Signup";
 
 //Buttons
 import MyProfileButton from "../buttons/MyProfileButton";
+import GoToDiscoverList from "../buttons/GoToDiscoverList";
 
 import SignOutButton from "../buttons/SignOutButton";
 import DiscoverDetail from "../DiscoverList/DiscoverDetail";
@@ -28,7 +29,7 @@ const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName='Signin'
+      initialRouteName="Signin"
       screenOptions={{
         headerTintColor: "#cea146",
         headerStyle: {
@@ -44,35 +45,46 @@ const RootNavigator = () => {
       }}
     >
       <Screen
+
+        name="Home"
+        component={Home}
+        options={{ headerRight: () => <MyProfileButton /> }}
+        options={{ headerLeft: () => <SignOutButton /> }}
+        options={{ title: "Home" }}
+      />
+      <Screen
+
         name='EditTripForm'
+
         component={EditTripForm}
         options={{ headerShown: true }}
       />
+
       <Screen
-        name='EditProfileForm'
+        name="EditProfileForm"
         component={EditProfileForm}
         options={{ headerShown: true }}
       />
 
       <Screen
-        name='CreateTripForm'
+        name="CreateTripForm"
         component={CreateTripForm}
         options={{ headerShown: true }}
       />
       <Screen
-        name='Signin'
+        name="Signin"
         component={Signin}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name='Signup'
+        name="Signup"
         component={Signup}
         options={{ headerShown: false }}
       />
 
       <Screen
-        name='ProfileList'
+        name="ProfileList"
         component={ProfileList}
         // options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
@@ -81,59 +93,84 @@ const RootNavigator = () => {
           headerTitle: () => (
             <Image
               source={splash}
-              alt='Logo'
+              alt="Logo"
               style={{ width: 65, height: 65, paddingBottom: 10 }}
             />
           ),
         }}
       />
-
+      {/* changed ProfileDetail to show icon */}
+   
       <Screen
-        name='ProfileDetail'
+        name="ProfileDetail"
         component={ProfileDetail}
         options={{ headerShown: false }}
         options={{ headerLeft: () => <SignOutButton /> }}
-        options={{ headerRight: () => <MyProfileButton /> }}
-        options={{
-          headerTitle: () => (
-            <Image
-              source={splash}
-              alt='Logo'
-              style={{ width: 65, height: 65, paddingBottom: 10 }}
-            />
-          ),
-        }}
       />
 
+      {/* <Screen
+         name="ProfileDetail"
+         name='ProfileDetail'
+         component={ProfileDetail}
+         options={{ headerShown: false }}
+         options={{ headerLeft: () => <SignOutButton /> }}
+         options={{
+           headerTitle: () => (
+             <Image
+               source={splash}
+               alt='Logo'
+               style={{ width: 65, height: 65, paddingBottom: 10 }}
+             />
+           ),
+         }}
+       /> */}
+
+       {/* changed DiscoverList to show icon */}
       <Screen
-        name='DiscoverList'
+        name="DiscoverList"
         component={DiscoverList}
         options={{ headerShown: true }}
-        options={{
-          headerRight: () => <MyProfileButton />,
-          headerTitle: () => (
-            <Image
-              source={splash}
-              alt='Logo'
-              style={{ width: 65, height: 65, paddingBottom: 10 }}
-            />
-          ),
-        }}
+        options={{ title: "Discover" }}
+        options={{ headerRight: () => <MyProfileButton /> }}
       />
-      <Screen
-        name='DiscoverDetail'
+      />
+      {/* <Screen
+         name="DiscoverList"
+         name='DiscoverList'
+         component={DiscoverList}
+         options={{ headerShown: true }}
+         options={{ title: "Discover" }}
+         options={{ headerRight: () => <MyProfileButton /> }}
+         // options={{ headerLeft: () => <SignOutButton /> }}
+         options={{
+           headerTitle: () => (
+             <Image
+               source={splash}
+               alt='Logo'
+               style={{ width: 65, height: 65, paddingBottom: 10 }}
+             />
+           ),
+         }}
+       /> */}
+       <Screen
+        name="DiscoverDetail"
         component={DiscoverDetail}
         options={{ headerShown: true }}
-        options={{
-          headerRight: () => <MyProfileButton />,
-          headerTitle: () => (
-            <Image
-              source={splash}
-              alt='Logo'
-              style={{ width: 65, height: 65, paddingBottom: 10 }}
-            />
+        options={{ title: "Trip Detail" }}
+        options={{ headerRight: () => <GoToDiscoverList /> }}
+        //   options={{
+        //     headerTitle: () => (
+        //       <Image
+        //         source={splash}
+        //         alt="Logo"
+        //         style={{ width: 65, height: 65, paddingBottom: 10 }}
+        //       />
+        //     ),
+        //   }}
+      />
           ),
         }}
+
       />
     </Navigator>
   );
