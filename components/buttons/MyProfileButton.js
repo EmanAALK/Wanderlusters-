@@ -14,6 +14,9 @@ const MyProfileButton = () => {
   const profile = profileStore.profiles.find(
     (profile) => profile.userId === authStore.user.id
   );
+  console.log("profile", profile);
+  console.log("user", authStore.user);
+  console.log("userId", authStore.user.id);
   return (
     <Button
       transparent

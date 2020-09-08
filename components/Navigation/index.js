@@ -125,6 +125,7 @@ const RootNavigator = () => {
         component={DiscoverList}
         options={{ headerShown: true }}
         options={{ title: "Discover" }}
+        // options={{ headerLeft: () => <SignOutButton /> }}
         options={{ headerRight: () => <MyProfileButton /> }}
       />
       {/* <Screen
