@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import DatePicker from "react-native-datepicker";
-
+import { Button, Image, View, Platform } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 //Stores
 import tripStore from "../../stores/TripStore";
 
@@ -20,10 +22,38 @@ const EditTripForm = ({ navigation, route }) => {
   const [trip, setTrip] = useState(oldTrip);
 
   const handleSubmit = async () => {
-    await tripStore.updateTrip(trip);
+    let localUri = image;
+    let filename = localUri.split("/").pop();
+    let match = /\.(\w+)$/.exec(filename);
+    let type = match ? `image/${match[1]}` : `image`;
+
+    await tripStore.updateTrip({
+      ...trip,
+      image: { uri: localUri, name: filename, type },
+    });
     navigation.replace("DiscoverList");
   };
 
+  const [image, setImage] = useState(null);
+  const pickImage = async () => {
+    try {
+      if (Platform.OS !== "web") {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+        if (status !== "granted") {
+          alert("Sorry, we need camera roll permissions to make this work!");
+        }
+      }
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      if (!result.cancelled) {
+        setImage(result.uri);
+      }
+    } catch (E) {}
+  };
   return (
     <ModalContainer>
       <ModalTitle>Edit Trip</ModalTitle>
@@ -62,12 +92,19 @@ const EditTripForm = ({ navigation, route }) => {
         value={trip.description}
         placeholderTextColor="#A6AEC1"
       />
-      <ModalTextInput
-        onChangeText={(image) => setTrip({ ...trip, image })}
-        placeholder="Image"
-        value={trip.image}
-        placeholderTextColor="#A6AEC1"
-      />
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          color: "black",
+        }}
+      >
+        <Button title="Edit Trip image" onPress={pickImage} />
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        )}
+      </View>
 
       <ModalButton onPress={handleSubmit}>
         <ModalButtonText>Save Changes</ModalButtonText>

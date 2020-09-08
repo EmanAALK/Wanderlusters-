@@ -47,16 +47,17 @@ const ProfileDetail = ({ route, navigation }) => {
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <ListItem thumbnail>
-        <BlackTitle>{profile.user.username}</BlackTitle>
-
         <Thumbnail
-          style={{ marginBottom: 5, marginRight: 16 }}
+          style={{ marginBottom: 5, marginRight: 16, textAligin: "center" }}
           source={profile.image ? { uri: profile.image } : defaultimage}
         />
-        <BlackTitle>{profile.user.firstName}</BlackTitle>
-        <BlackTitle>{profile.bio}</BlackTitle>
       </ListItem>
+      <BlackTitle>
+        {profile.user.firstName} {profile.user.lastName}
+      </BlackTitle>
+      <BlackTitle>{profile.bio}</BlackTitle>
 
+      <BlackTitle>@{profile.user.username}</BlackTitle>
       {profile.userId === authStore.user.id ? (
         <>
           <Button

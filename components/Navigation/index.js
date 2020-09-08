@@ -87,11 +87,7 @@ const RootNavigator = () => {
       <Screen
         name="DiscoverDetail"
         component={DiscoverDetail}
-        options={
-          ({ headerShown: true },
-          { title: "Trip Detail" },
-          { headerRight: () => <GoToDiscoverList /> })
-        }
+        options={({ headerShown: true }, { title: "Trip Detail" })}
       />
     </Navigator>
   );
