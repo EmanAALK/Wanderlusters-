@@ -3,9 +3,17 @@ import { observer } from "mobx-react";
 
 //Styles
 
-import { ListItem, Left, Content, List } from "native-base";
+import {
+  ListItem,
+  Left,
+  Content,
+  List,
+  View,
+  Thumbnail,
+  Image,
+} from "native-base";
 import { DTripTitle, DTripTitle2 } from "./styles";
-
+import defaultTrip from "../../assets/defaultTrip.png";
 import profileStore from "../../stores/ProfileStore";
 const DiscoverDetail = ({ route, navigation }) => {
   const { trip } = route.params;
@@ -38,7 +46,13 @@ const DiscoverDetail = ({ route, navigation }) => {
         </Left>
         <Left>
           <DTripTitle2>Trip Image: </DTripTitle2>
-          <DTripTitle>{trip.image}</DTripTitle>
+          {/* <View>{trip.image}</View> */}
+          <View>
+            <Thumbnail
+              style={{ marginBottom: 1, marginRight: 1 }}
+              source={trip.image ? { uri: trip.image } : defaultTrip}
+            />
+          </View>
         </Left>
       </List>
     </Content>

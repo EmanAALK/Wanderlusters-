@@ -18,6 +18,7 @@ import { Content, Spinner, List, Text, Image, Button } from "native-base";
 
 const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
+  const loggedInUser = authStore.user;
 
   //For Later consideration when signing out: "an error Id of null cannot be shown because it's going,
   //search for the user that has been turn to null"
@@ -32,7 +33,7 @@ const DiscoverList = ({ navigation }) => {
     <Content style={{ backgroundColor: "white" }}>
       <Container>
         <Text onPress={() => navigation.navigate("CreateTripForm")}>
-          <ADDButtonStyled type="Octicons" name="diff-added" />
+          <ADDButtonStyled type="Entypo" name="aircraft-take-off" />
           {/* <Image source={{ airplain }} alt='Add' /> */}
         </Text>
       </Container>
