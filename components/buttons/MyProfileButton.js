@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
 import { observer } from "mobx-react";
+
 import { MyProfileButtonStyled, MyProfileTextStyled } from "../../styles";
 import { useNavigation } from "@react-navigation/native";
-import { Button, ListItem } from "native-base";
+import { Button, ListItem, Text } from "native-base";
 import profileStore from "../../stores/ProfileStore";
 import authStore from "../../stores/AuthStore";
 
@@ -17,7 +18,7 @@ const MyProfileButton = () => {
       light
       onPress={() => navigation.navigate("ProfileDetail", { profile: profile })}
     >
-      <MyProfileButtonStyled type="AntDesign" name="profile" />
+      <MyProfileButtonStyled type='AntDesign' name='profile' />
     </Button>
   );
 };

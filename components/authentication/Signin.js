@@ -32,13 +32,13 @@ const Signin = ({ navigation }) => {
       <AuthTitle>Log in to Wanderlust</AuthTitle>
       <AuthTextInput
         onChangeText={(username) => setUser({ ...user, username })}
-        placeholder="Username"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Username'
+        placeholderTextColor='#A6AEC1'
       />
       <AuthTextInput
         onChangeText={(password) => setUser({ ...user, password })}
-        placeholder="Password"
-        placeholderTextColor="#A6AEC1"
+        placeholder='Password'
+        placeholderTextColor='#A6AEC1'
         secureTextEntry={true}
       />
       <AuthButton onPress={handleSubmit}>
