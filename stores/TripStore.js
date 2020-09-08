@@ -1,5 +1,6 @@
 import { decorate, observable } from "mobx";
 import instance from "./instance";
+import authStore from "./AuthStore";
 
 class TripStore {
   trips = [];
@@ -19,8 +20,11 @@ class TripStore {
 
   updateTrip = async (updatedTrip) => {
     try {
-      await instance.put(`/trips/${updatedTrip.id}`, updatedTrip);
+      const formData = new FormData();
+      for (const key in updatedTrip) formData.append(key, updatedTrip[key]);
+      await instance.put(`/trips/${updatedTrip.id}`, formData);
       const trip = this.trips.find((trip) => trip.id === updatedTrip.id);
+
       for (const key in updatedTrip) trip[key] = updatedTrip[key];
       // trip.image = URL.createObjectURL(updatedTrip.image);
     } catch (error) {
@@ -30,8 +34,13 @@ class TripStore {
 
   createTrip = async (newTrip) => {
     try {
-      const res = await instance.post(`/${newTrip.userId}/trips`, newTrip);
-      this.trips.push(res.data);
+      const formData = new FormData();
+      for (const key in newTrip) formData.append(key, newTrip[key]);
+      const res = await instance.post(`/${newTrip.userId}/trips`, formData);
+      this.trips.push({
+        ...res.data,
+        user: { username: authStore.user.username },
+      });
     } catch (error) {
       console.log("TripStore -> createTrip -> error ", error);
     }

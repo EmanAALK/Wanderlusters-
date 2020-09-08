@@ -28,8 +28,16 @@ const CreateTripForm = ({ navigation }) => {
   });
 
   const handleSubmit = async () => {
-    console.log("check", trip.date);
-    await tripStore.createTrip(trip);
+    let localUri = image;
+    let filename = localUri.split("/").pop();
+    let match = /\.(\w+)$/.exec(filename);
+    let type = match ? `image/${match[1]}` : `image`;
+
+    await tripStore.createTrip({
+      ...trip,
+
+      image: { uri: localUri, name: filename, type },
+    });
     navigation.replace("DiscoverList");
   };
 

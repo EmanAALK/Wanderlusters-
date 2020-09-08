@@ -20,6 +20,7 @@ const DiscoverDetail = ({ route, navigation }) => {
   const profile = profileStore.profiles.find(
     (profile) => profile.userId === trip.userId
   );
+  console.log(trip);
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
       <List>

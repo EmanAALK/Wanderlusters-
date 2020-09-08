@@ -23,7 +23,19 @@ const EditProfileForm = ({ navigation, route }) => {
   const [profile, setProfile] = useState(oldProfile);
 
   const handleSubmit = async () => {
-    await profileStore.updateProfile(profile);
+    let localUri = image;
+    let filename = localUri.split("/").pop();
+    let match = /\.(\w+)$/.exec(filename);
+    let type = match ? `image/${match[1]}` : `image`;
+
+    console.log({
+      ...profile,
+      image: { uri: localUri, name: filename, type },
+    });
+    await profileStore.updateProfile({
+      ...profile,
+      image: { uri: localUri, name: filename, type },
+    });
     navigation.goBack();
   };
   const [image, setImage] = useState(null);
@@ -59,13 +71,9 @@ const EditProfileForm = ({ navigation, route }) => {
       <AuthTextInput
         onChangeText={(bio) => setProfile({ ...profile, bio })}
         placeholder="Bio"
+        initialValue="1"
         placeholderTextColor="#A6AEC1"
       />
-      {/* <AuthTextInput
-        onChangeText={(image) => setProfile({ ...profile, image })}
-        placeholder="image"
-        placeholderTextColor="#A6AEC1"
-      /> */}
 
       <View
         style={{

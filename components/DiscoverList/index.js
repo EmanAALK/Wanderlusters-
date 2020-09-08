@@ -20,9 +20,6 @@ const DiscoverList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
   if (!authStore.user) return <Spinner />;
 
-  //For Later consideration when signing out: "an error Id of null cannot be shown because it's going,
-  //search for the user that has been turn to null"
-
   const discoverList = tripStore.trips
     .filter((trip) => authStore.user.id !== trip.userId)
     .map((trip) => (
