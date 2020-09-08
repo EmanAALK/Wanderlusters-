@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 
+//Stores
+import authStore from "../../stores/AuthStore";
+
 //Styles
 import {
   AuthContainer,
@@ -10,9 +13,6 @@ import {
   AuthButton,
   AuthOther,
 } from "./styles";
-
-//Stores
-import authStore from "../../stores/AuthStore";
 
 const Signup = ({ navigation }) => {
   const [user, setUser] = useState({

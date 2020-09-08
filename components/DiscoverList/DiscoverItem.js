@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
+import { ListItem, Left, Right, Text } from "native-base";
 
-//Styling
-import { ListItem, Left, Right, Text, Image, View, Button } from "native-base";
-import { DTripTitle, DeleteButtonStyled, UpdateButtonStyled } from "./styles";
-import { FavortieButtonStyled } from "../../styles";
 import tripStore from "../../stores/TripStore";
 import authStore from "../../stores/AuthStore";
+
+//Styling
+import {
+  DTripTitle,
+  DeleteButtonStyled,
+  UpdateButtonStyled,
+  FavoriteButtonStyled,
+} from "./styles";
 
 const DiscoverItem = ({ trip, navigation }) => {
   const [favorite, setFavorite] = useState(favorite);
@@ -37,7 +42,7 @@ const DiscoverItem = ({ trip, navigation }) => {
             </UpdateButtonStyled>
 
             <Text onPress={handleChange}>
-              <FavortieButtonStyled type="AntDesign" name="star" />
+              <FavoriteButtonStyled type="AntDesign" name="star" />
             </Text>
           </Right>
         </>

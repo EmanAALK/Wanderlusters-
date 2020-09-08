@@ -1,4 +1,5 @@
 import { decorate, observable } from "mobx";
+
 import instance from "./instance";
 import authStore from "./AuthStore";
 
@@ -7,15 +8,11 @@ class TripStore {
   loading = true;
 
   fetchTrips = async () => {
-    //error handler
     try {
       const response = await instance.get("/trips");
-      // console.log("NailStore -> fetchItems -> error", response); // test to see where data come from
       this.trips = response.data;
       this.loading = false;
-    } catch (error) {
-      console.log("TripStore -> fetchTrips -> error", error);
-    }
+    } catch (error) {}
   };
 
   updateTrip = async (updatedTrip) => {
@@ -26,10 +23,7 @@ class TripStore {
       const trip = this.trips.find((trip) => trip.id === updatedTrip.id);
 
       for (const key in updatedTrip) trip[key] = updatedTrip[key];
-      // trip.image = URL.createObjectURL(updatedTrip.image);
-    } catch (error) {
-      console.log("TripStore -> updatedTrip -> error", error);
-    }
+    } catch (error) {}
   };
 
   createTrip = async (newTrip) => {
@@ -41,18 +35,14 @@ class TripStore {
         ...res.data,
         user: { username: authStore.user.username },
       });
-    } catch (error) {
-      console.log("TripStore -> createTrip -> error ", error);
-    }
+    } catch (error) {}
   };
 
   deleteTrip = async (tripId) => {
     try {
       await instance.delete(`/trips/${tripId}`);
       this.trips = this.trips.filter((trip) => trip.id !== tripId);
-    } catch (error) {
-      console.log("TripStore -> deleteTrip -> error ", error);
-    }
+    } catch (error) {}
   };
 }
 

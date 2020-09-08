@@ -48,3 +48,8 @@ export const DeleteButtonStyled = styled.Text`
   color: #3a160b;
   font-size: 12px;
 `;
+
+export const FavoriteButtonStyled = styled(Icon)`
+  color: #000000;
+  margin-right: 10px;
+`;

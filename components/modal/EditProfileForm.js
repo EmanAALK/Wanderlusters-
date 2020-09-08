@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
+import { Button, Image, View, Platform } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+
+//Stores
+import profileStore from "../../stores/ProfileStore";
 
 //Styles
 import {
@@ -11,13 +17,6 @@ import {
   AuthOther,
 } from "../authentication/styles";
 
-//Stores
-import profileStore from "../../stores/ProfileStore";
-
-import { Button, Image, View, Platform } from "react-native";
-import * as ImagePicker from "expo-image-picker";
-import * as Permissions from "expo-permissions";
-
 const EditProfileForm = ({ navigation, route }) => {
   const { oldProfile } = route.params;
   const [profile, setProfile] = useState(oldProfile);
@@ -28,10 +27,6 @@ const EditProfileForm = ({ navigation, route }) => {
     let match = /\.(\w+)$/.exec(filename);
     let type = match ? `image/${match[1]}` : `image`;
 
-    console.log({
-      ...profile,
-      image: { uri: localUri, name: filename, type },
-    });
     await profileStore.updateProfile({
       ...profile,
       image: { uri: localUri, name: filename, type },
@@ -42,7 +37,6 @@ const EditProfileForm = ({ navigation, route }) => {
 
   const pickImage = async () => {
     try {
-      console.log(pickImage);
       if (Platform.OS !== "web") {
         const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
         if (status !== "granted") {
@@ -58,11 +52,7 @@ const EditProfileForm = ({ navigation, route }) => {
       if (!result.cancelled) {
         setImage(result.uri);
       }
-
-      console.log(result);
-    } catch (E) {
-      console.log(E);
-    }
+    } catch (E) {}
   };
 
   return (

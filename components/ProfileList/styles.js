@@ -22,13 +22,13 @@ export const DTripTitle = styled.Text`
 
 export const Title = styled.Text`
   color: #fff;
-  font-size: 38;
+  font-size: 38px;
   text-align: center;
 `;
 
 export const BlackTitle = styled.Text`
   color: black;
-  font-size: 20;
+  font-size: 20px;
   text-align: center;
   margin-top: 0;
 `;
