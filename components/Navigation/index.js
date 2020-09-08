@@ -83,7 +83,7 @@ const RootNavigator = () => {
         name="ProfileList"
         component={ProfileList}
         // options={{ headerShown: false }}
-        options={{ headerLeft: () => <SignOutButton /> }}
+        // options={{ headerLeft: () => <SignOutButton /> }}
         options={{
           headerTitle: () => (
             <Image

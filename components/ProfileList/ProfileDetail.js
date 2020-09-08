@@ -42,6 +42,13 @@ const ProfileDetail = ({ route, navigation }) => {
     .map((trip) => (
       <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
     ));
+
+  const NotfavoriteTripList = tripStore.trips
+    .filter((trip) => trip.userId === profile.userId)
+    .filter((trip) => trip.favorite == false)
+    .map((trip) => (
+      <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
+    ));
   console.log("check favorite value", favoriteTripList);
   return (
     <Content style={{ backgroundColor: "white", marginTop: 20 }}>
@@ -74,7 +81,7 @@ const ProfileDetail = ({ route, navigation }) => {
 
       <DTripTitle> My Trips</DTripTitle>
 
-      <List>{profileTripList}</List>
+      <List>{NotfavoriteTripList}</List>
       <DTripTitle> My favorite Trips</DTripTitle>
 
       <List>{favoriteTripList}</List>

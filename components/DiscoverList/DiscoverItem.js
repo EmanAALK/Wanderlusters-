@@ -10,7 +10,10 @@ import authStore from "../../stores/AuthStore";
 
 const DiscoverItem = ({ trip, navigation }) => {
   const [favorite, setFavorite] = useState(favorite);
-  console.log("favorite", favorite);
+
+  const handleChange = async () => {
+    await tripStore.updateTrip({ ...trip, favorite: !trip.favorite });
+  };
 
   return (
     <ListItem
@@ -33,7 +36,7 @@ const DiscoverItem = ({ trip, navigation }) => {
               Update
             </UpdateButtonStyled>
 
-            <Text onPress={() => setFavorite(!favorite)}>
+            <Text onPress={handleChange}>
               <FavortieButtonStyled type="AntDesign" name="star" />
             </Text>
           </Right>
